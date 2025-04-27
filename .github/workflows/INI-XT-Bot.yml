@@ -23,6 +23,8 @@ jobs:
         run: |
           mkdir -p Python/{dataBase,downloads,logs,output}
           mkdir -p TypeScript/{data,logs,resp,tweets}
+          mkdir -p TypeScript/resp/respFollowing
+          mkdir -p config
 
       - name: Setup Bun
         uses: oven-sh/setup-bun@v1
@@ -33,6 +35,7 @@ jobs:
         run: |
           cd TypeScript
           bun install
+          bun install --dev @types/node @types/lodash @types/fs-extra
 
       - name: Setup Python
         uses: actions/setup-python@v4
@@ -46,26 +49,63 @@ jobs:
 
       - name: Get REDIS CONFIG
         env:
-          REDIS_CONFIG: ${{ secrets.REDIS_CONFIG }}
+          SCREEN_NAME: ${{ secrets.SCREEN_NAME }}
         run: |
+          echo "当前目录: $(pwd)"
+          echo "输出环境变量SCREEN_NAME: $SCREEN_NAME"
           cd Python/utils
-          python get_redis_config.py
+          python -c "import os; print(f'Python中读取到的SCREEN_NAME: {os.environ.get(\"SCREEN_NAME\", \"未设置\")}')"
+          # 使用改进的配置创建脚本
+          python fix_redis_config.py
+          # 检查文件是否创建成功
+          if [ -f "../../config/config.json" ]; then
+            echo "✅ 配置文件已成功创建在正确位置"
+            cat ../../config/config.json
+          else
+            echo "⚠️ 配置文件未在预期位置创建，使用备用方法"
+            mkdir -p ../../config/
+            # 创建包含多个screenName的配置（如果有多个用户名，以逗号分隔）
+            python -c "import json; import os; screen_name = os.environ.get('SCREEN_NAME', ''); screen_names = [name.strip() for name in screen_name.split(',') if name.strip()] if screen_name else []; config = {'screenName': screen_names, 'interval': 5000, 'filterRetweets': True, 'filterQuotes': True, 'maxRetries': 3, 'limit': 10}; f=open('../../config/config.json', 'w'); json.dump(config, f, indent=2); f.close(); print('配置文件已通过内联方式创建')"
+            cat ../../config/config.json
+          fi
 
-      - name: Run fetch script
+      - name: Create config file if not exists
+        run: |
+          if [ ! -f "config/config.json" ]; then
+            echo "创建默认配置文件"
+            # 使用Python确保JSON格式正确
+            python -c "import json; import os; screen_name = os.environ.get('SCREEN_NAME', ''); screen_names = [name.strip() for name in screen_name.split(',') if name.strip()] if screen_name else []; config = {'screenName': screen_names, 'interval': 5000, 'filterRetweets': True, 'filterQuotes': True, 'maxRetries': 3, 'limit': 10}; f=open('config/config.json', 'w'); json.dump(config, f, indent=2); f.close(); print('备用配置文件已创建')"
+          else
+            echo "配置文件已存在，显示内容："
+            cat config/config.json
+          fi
+
+      - name: Run fetch-tweets-media script
         env:
           AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }}
+          SCREEN_NAME: ${{ secrets.SCREEN_NAME }}
         run: |
           cd TypeScript/scripts
-          bun run fetch-tweets-media.ts
+          bun run fetch-tweets-media.ts || echo "警告：获取推文媒体失败，但继续执行工作流"
+
+      - name: Run fetch-following script
+        env:
+          AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }}
+          SCREEN_NAME: ${{ secrets.SCREEN_NAME }}
+        run: |
+          cd TypeScript/scripts
+          bun run fetch-following.ts || echo "警告：获取关注列表失败，但继续执行工作流"
 
       - name: Run INI-XT-Bot.py
         env:
-          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
-          CHAT_ID: ${{ secrets.CHAT_ID }}
+          #BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+          #CHAT_ID: ${{ secrets.CHAT_ID }}
           LARK_KEY: ${{ secrets.LARK_KEY }}
+          LARK_APP_ID: ${{ secrets.LARK_APP_ID }}
+          LARK_APP_SECRET: ${{ secrets.LARK_APP_SECRET }}
         run: |
           cd Python/src
-          python INI-XT-Bot.py
+          python INI-XT-Bot.py || echo "警告：Python脚本执行失败，但继续执行工作流"
 
       - name: Upload Response Artifacts
         uses: actions/upload-artifact@v4
@@ -77,8 +117,15 @@ jobs:
             TypeScript/resp/
           retention-days: 7  # 自动清理
 
+      - name: Check for changes
+        id: git-check
+        run: |
+          git status --porcelain
+          echo "has_changes=$(git status --porcelain | wc -l)" >> $GITHUB_OUTPUT
+
       - name: Commit and push changes
+        if: steps.git-check.outputs.has_changes != '0'
         run: |
           git add config Python/dataBase Python/output TypeScript/data TypeScript/tweets
-          git commit -m "chore: update user data [skip ci]" || exit 0
+          git commit -m "chore: update user data [skip ci]" || echo "没有变更需要提交"
           git push
