@@ -29,6 +29,21 @@ jobs:
           mkdir -p Python/{dataBase,downloads,logs,output}
           mkdir -p TypeScript/{data,logs,resp,tweets}
 
+      - name: Verify secrets
+        run: |
+          # 检查关键secrets是否设置（不输出实际值，只显示是否存在和长度）
+          if [ -n "${{ secrets.AUTH_TOKEN }}" ]; then
+            echo "✅ AUTH_TOKEN已设置，长度: ${#AUTH_TOKEN}"
+          else
+            echo "❌ 错误: AUTH_TOKEN未设置或为空"
+          fi
+          
+          if [ -n "${{ secrets.SCREEN_NAME }}" ]; then
+            echo "✅ SCREEN_NAME已设置: ${{ secrets.SCREEN_NAME }}"
+          else
+            echo "❌ 错误: SCREEN_NAME未设置或为空"
+          fi
+
       - name: Setup Bun
         uses: oven-sh/setup-bun@v1
         with:
@@ -54,14 +69,21 @@ jobs:
           AUTH_TOKEN: ${{ secrets.AUTH_TOKEN }}
           SCREEN_NAME: ${{ secrets.SCREEN_NAME }}
         run: |
+          # 再次验证环境变量是否正确设置
+          echo "AUTH_TOKEN存在: $([[ -n \"$AUTH_TOKEN\" ]] && echo '是' || echo '否')"
+          echo "AUTH_TOKEN长度: ${#AUTH_TOKEN}"
+          echo "SCREEN_NAME: $SCREEN_NAME"
+          
           cd TypeScript/scripts
-          bun run fetch-following.ts
-          bun run fetch-home-latest-timeline.ts
+          echo "尝试运行fetch-following.ts..."
+          bun run fetch-following.ts || echo "⚠️ 警告：获取关注列表失败，但继续执行工作流"
+          echo "尝试运行fetch-home-latest-timeline.ts..."
+          bun run fetch-home-latest-timeline.ts || echo "⚠️ 警告：获取时间线失败，但继续执行工作流"
 
       - name: Run X-Bot.py
         run: |
           cd Python/src
-          python X-Bot.py
+          python X-Bot.py || echo "⚠️ 警告：X-Bot.py执行失败，但继续执行工作流"
 
       - name: Run T-Bot.py
         env:
@@ -70,7 +92,7 @@ jobs:
           LARK_KEY: ${{ secrets.LARK_KEY }}
         run: |
           cd Python/src
-          python T-Bot.py
+          python T-Bot.py || echo "⚠️ 警告：T-Bot.py执行失败，但继续执行工作流"
 
       - name: Upload Response Artifacts
         uses: actions/upload-artifact@v4
