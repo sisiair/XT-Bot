@@ -22,6 +22,34 @@ jobs:
           # 使用GH_TOKEN配置认证以解决403权限问题
           git remote set-url origin https://${{ secrets.GH_TOKEN }}@github.com/sisiair/XT-Bot.git
 
+      - name: Verify environment variables
+        env:
+          LARK_KEY: ${{ secrets.LARK_KEY }}
+          LARK_APP_ID: ${{ secrets.LARK_APP_ID }}
+          LARK_APP_SECRET: ${{ secrets.LARK_APP_SECRET }}
+        run: |
+          echo "检查关键环境变量是否已设置："
+          
+          # 检查LARK_KEY
+          if [ -n "$LARK_KEY" ]; then
+            echo "✅ LARK_KEY 已设置，长度: ${#LARK_KEY}"
+          else
+            echo "❌ 警告: LARK_KEY 未设置或为空，飞书通知功能将不可用"
+          fi
+          
+          # 检查其他可选环境变量
+          if [ -n "$LARK_APP_ID" ]; then
+            echo "✅ LARK_APP_ID 已设置"
+          else
+            echo "⚠️ LARK_APP_ID 未设置 (可选)"
+          fi
+          
+          if [ -n "$LARK_APP_SECRET" ]; then
+            echo "✅ LARK_APP_SECRET 已设置"
+          else
+            echo "⚠️ LARK_APP_SECRET 未设置 (可选)"
+          fi
+
       - name: Create directories
         run: |
           mkdir -p Python/{dataBase,downloads,logs,output}
@@ -89,6 +117,7 @@ jobs:
           SCREEN_NAME: ${{ secrets.SCREEN_NAME }}
         run: |
           cd TypeScript/scripts
+          echo "尝试运行fetch-tweets-media.ts..."
           bun run fetch-tweets-media.ts || echo "警告：获取推文媒体失败，但继续执行工作流"
 
       - name: Run fetch-following script
@@ -97,6 +126,7 @@ jobs:
           SCREEN_NAME: ${{ secrets.SCREEN_NAME }}
         run: |
           cd TypeScript/scripts
+          echo "尝试运行fetch-following.ts..."
           bun run fetch-following.ts || echo "警告：获取关注列表失败，但继续执行工作流"
 
       - name: Run INI-XT-Bot.py
@@ -108,6 +138,10 @@ jobs:
           LARK_APP_SECRET: ${{ secrets.LARK_APP_SECRET }}
         run: |
           cd Python/src
+          echo "检查运行INI-XT-Bot.py前的环境变量:"
+          echo "LARK_KEY存在: $([[ -n \"$LARK_KEY\" ]] && echo '是' || echo '否')"
+          echo "LARK_KEY长度: ${#LARK_KEY}"
+          echo "开始执行INI-XT-Bot.py..."
           python INI-XT-Bot.py || echo "警告：Python脚本执行失败，但继续执行工作流"
 
       - name: Upload Response Artifacts
