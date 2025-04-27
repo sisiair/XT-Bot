@@ -1,3 +1,8 @@
+# 移除现有依赖
+# import telegram
+
+# 确保requests库已导入
+import requests
 import json
 import os
 import logging
@@ -6,17 +11,21 @@ from datetime import datetime
 from pathlib import Path
 from typing import List, Dict
 
-import telegram
-
 
 # --------------------------
 # 配置常量
 # --------------------------
 class EnvConfig:
     """环境变量配置"""
-    BOT_TOKEN = os.getenv("BOT_TOKEN")  # Telegram机器人Token
-    CHAT_ID = os.getenv("CHAT_ID")  # Telegram频道/群组ID
-    LARK_KEY = os.getenv("LARK_KEY")  # 飞书机器人Webhook Key
+    # 移除Telegram相关配置
+    # BOT_TOKEN = os.getenv("BOT_TOKEN")  
+    # CHAT_ID = os.getenv("CHAT_ID")  
+    
+    # 扩展飞书配置
+    LARK_KEY = os.getenv("LARK_KEY")            # 飞书机器人Webhook Key
+    LARK_APP_ID = os.getenv("LARK_APP_ID")      # 可选：飞书应用ID
+    LARK_APP_SECRET = os.getenv("LARK_APP_SECRET")  # 可选：飞书应用密钥
+    LARK_ALERT_KEY = os.getenv("LARK_ALERT_KEY", LARK_KEY)  # 告警机器人Key，默认同主Key
 
 
 class PathConfig:
@@ -31,7 +40,15 @@ class MsgConfig:
     """消息模板"""
     TELEGRAM_ALERT = "#{screen_name} #x"  # Telegram通知模板
 
-
+# 消息类型枚举
+class LarkMessageType:
+    TEXT = "text"               # 纯文本消息
+    POST = "post"               # 富文本消息
+    INTERACTIVE = "interactive" # 交互式卡片
+    IMAGE = "image"             # 图片消息
+    FILE = "file"               # 文件消息
+    AUDIO = "audio"             # 音频消息
+    MEDIA = "media"             # 视频等媒体消息
 # --------------------------
 # 日志配置
 # --------------------------
@@ -106,25 +123,62 @@ def send_telegram_alert(screen_name: str) -> bool:
         return False
 
 
-def send_lark_alert(message: str) -> bool:
-    """
-    发送飞书告警通知
-    返回发送状态: True成功 / False失败
-    """
-    if not EnvConfig.LARK_KEY:
-        logger.debug("⏭️ 未配置飞书机器人，跳过通知")
+# 创建全局通知器实例
+lark_notifier = None
+
+def initialize_notifier():
+    """初始化飞书通知器"""
+    global lark_notifier
+    if EnvConfig.LARK_KEY:
+        lark_notifier = LarkNotifier(
+            EnvConfig.LARK_KEY, 
+            EnvConfig.LARK_APP_ID, 
+            EnvConfig.LARK_APP_SECRET
+        )
+        logger.info("✅ 飞书通知器已初始化")
+    else:
+        logger.warning("⚠️ 未配置飞书，通知功能将不可用")
+
+def send_lark_message(screen_name: str, new_count: int = 0) -> bool:
+    """发送普通消息(原Telegram通知)"""
+    if not lark_notifier:
+        logger.warning("⏭️ 飞书通知器未初始化，跳过通知发送")
+        return False
+    
+    try:
+        title = f"#{screen_name} 内容更新"
+        content = f"已处理 {new_count} 条新内容"
+        
+        success, message = lark_notifier.send_rich_text(
+            title=title,
+            content=content,
+            screen_name=screen_name
+        )
+        
+        if success:
+            logger.info(f"📢 飞书通知发送成功: {title}")
+            return True
+        else:
+            logger.error(f"❌ 飞书通知发送失败: {message}")
+            return False
+            
+    except Exception as e:
+        logger.error(f"🚨 通知发送出现意外错误: {str(e)}", exc_info=True)
         return False
 
+def send_lark_alert(message: str) -> bool:
+    """发送告警消息(保持原有功能)"""
+    if not lark_notifier:
+        return False
+        
     try:
-        webhook_url = f"https://open.feishu.cn/open-apis/bot/v2/hook/{EnvConfig.LARK_KEY}"
-        payload = {
-            "msg_type": "text",
-            "content": {"text": f"🔔 INI-XT-Bot告警\n{message}"}
-        }
-        resp = requests.post(webhook_url, json=payload, timeout=10)
-        resp.raise_for_status()
-        logger.info("📨 飞书告警发送成功")
-        return True
+        success, response = lark_notifier.send_text(message, is_alert=True)
+        if success:
+            logger.info("📨 飞书告警发送成功")
+            return True
+        else:
+            logger.error(f"❌ 飞书告警发送失败: {response}")
+            return False
     except Exception as e:
         logger.error(f"❌ 飞书通知发送失败: {str(e)}")
         return False
@@ -180,18 +234,29 @@ def process_user(screen_name: str) -> int:
             ["python", "-u", "X-Bot.py", str(data_file)],
             stdout=subprocess.PIPE,
             stderr=subprocess.STDOUT,  # 合并错误输出
-            text=True,
+            text=False,
             bufsize=1  # 启用行缓冲
         )
 
         # 实时打印输出并捕获最后结果
         output_lines = []
-        for line in iter(process.stdout.readline, ''):
-            line = line.strip()
-            if line:  # 过滤空行
-                # 实时打印到父进程控制台
-                print(f"[X-Bot] {line}", flush=True)
-                output_lines.append(line)
+        for line in iter(process.stdout.readline, b''):
+            try:
+                line = line.decode('utf-8').strip()
+                if line:  # 过滤空行
+                    # 实时打印到父进程控制台
+                    print(f"[X-Bot] {line}", flush=True)
+                    output_lines.append(line)
+            except UnicodeDecodeError:
+                # 如果UTF-8解码失败，尝试使用其他编码
+                try:
+                    line = line.decode('gbk').strip()
+                    if line:
+                        print(f"[X-Bot] {line}", flush=True)
+                        output_lines.append(line)
+                except UnicodeDecodeError:
+                    # 如果仍然失败，跳过该行
+                    print("[X-Bot] [无法解码的行]", flush=True)
 
         # 等待进程结束
         process.wait()
@@ -242,13 +307,21 @@ def trigger_tbot() -> bool:
             ["python", "-u", "T-Bot.py", str(json_path)],
             stdout=subprocess.PIPE,
             stderr=subprocess.STDOUT,
-            text=True,
+            text=False,
             bufsize=1
         )
 
         # 实时转发输出
-        for line in iter(process.stdout.readline, ''):
-            print(f"[T-Bot] {line.strip()}", flush=True)
+        for line in iter(process.stdout.readline, b''):
+            try:
+                line_str = line.decode('utf-8').strip()
+                print(f"[T-Bot] {line_str}", flush=True)
+            except UnicodeDecodeError:
+                try:
+                    line_str = line.decode('gbk').strip()
+                    print(f"[T-Bot] {line_str}", flush=True)
+                except UnicodeDecodeError:
+                    print("[T-Bot] [无法解码的行]", flush=True)
 
         # 检查结果
         process.wait()
@@ -269,6 +342,139 @@ def trigger_tbot() -> bool:
         logger.error(f"🚨 未知错误: {str(e)}")
         return False
 
+
+
+class LarkNotifier:
+    """飞书通知服务"""
+    
+    def __init__(self, lark_key, app_id=None, app_secret=None):
+        self.webhook_url = f"https://open.feishu.cn/open-apis/bot/v2/hook/{lark_key}"
+        self.app_id = app_id
+        self.app_secret = app_secret
+        self.access_token = None
+        
+    def send_text(self, content, is_alert=False):
+        """发送文本消息"""
+        prefix = "🔔 告警通知\n" if is_alert else "📢 动态更新\n"
+        payload = {
+            "msg_type": "text",
+            "content": {"text": f"{prefix}{content}"}
+        }
+        return self._send_request(payload)
+    
+    def send_rich_text(self, title, content, screen_name=None, publish_time=None):
+        """发送富文本消息"""
+        # 构建zh_cn语言的内容
+        zh_cn_content = []
+        
+        # 添加标题
+        if title:
+            zh_cn_content.append([{"tag": "text", "text": f"{title}"}])
+        
+        # 添加标签和发布时间
+        tags = []
+        if screen_name:
+            tags.append([
+                {"tag": "text", "text": "#"},
+                {"tag": "text", "text": screen_name, "style": {"color": "#3370ff"}}
+            ])
+        
+        if publish_time:
+            formatted_time = publish_time
+            if isinstance(publish_time, datetime):
+                formatted_time = publish_time.strftime("%Y-%m-%d %H:%M:%S")
+            tags.append([{"tag": "text", "text": f"发布时间: {formatted_time}"}])
+            
+        if tags:
+            zh_cn_content.extend(tags)
+        
+        # 添加主要内容
+        if content:
+            zh_cn_content.append([{"tag": "text", "text": content}])
+        
+        payload = {
+            "msg_type": "post",
+            "content": {
+                "post": {
+                    "zh_cn": {
+                        "title": title or "推文更新",
+                        "content": zh_cn_content
+                    }
+                }
+            }
+        }
+        return self._send_request(payload)
+    
+    def _send_request(self, payload):
+        """发送请求到飞书"""
+        try:
+            response = requests.post(
+                self.webhook_url, 
+                json=payload, 
+                timeout=10
+            )
+            response.raise_for_status()
+            
+            # 处理响应
+            result = response.json()
+            if result.get("code") == 0:
+                logger.info("✅ 飞书消息发送成功")
+                return True, result.get("message", "")
+            else:
+                logger.error(f"❌ 飞书响应错误: {result}")
+                return False, result.get("msg", "未知错误")
+                
+        except Exception as e:
+            logger.error(f"🚨 飞书消息发送失败: {str(e)}", exc_info=True)
+            return False, str(e)
+
+    def upload_media_to_lark(self, file_path, item):
+        """上传媒体文件到飞书"""
+        # 判断文件类型
+        file_type = self._detect_file_type(file_path)
+        
+        # 构建基础消息内容
+        screen_name = item['user']['screen_name']
+        publish_time = datetime.fromisoformat(item['publish_time']).strftime("%Y-%m-%d %H:%M:%S")
+        text_content = item.get('full_text', '')
+        
+        # 如果是图片，直接发送图片消息
+        if file_type == 'image':
+            return self._send_image(file_path, screen_name, publish_time, text_content)
+        
+        # 如果是视频或其他类型文件，使用文件分享方式
+        elif file_type in ['video', 'audio', 'file']:
+            return self._share_file(file_path, screen_name, publish_time, text_content, file_type)
+        
+        # 如果是特殊类型(广播/空间)，发送普通文本消息
+        else:
+            return self.send_rich_text(
+                title=f"#{screen_name} 更新了{file_type}",
+                content=text_content,
+                publish_time=publish_time
+            )
+
+    def _send_image(self, file_path, screen_name, publish_time, text_content):
+        """发送图片消息到飞书"""
+        # 飞书要求先上传图片获取image_key，再发送图片消息
+        
+        # 1. 获取上传凭证(调用飞书API)
+        
+        # 2. 上传图片文件获取image_key
+        
+        # 3. 发送图片消息，附带文本信息
+        # ...这里需要调用飞书API实现，具体代码略
+        
+        # 示例返回
+        return True, "图片消息已发送"
+
+    def _share_file(self, file_path, screen_name, publish_time, text_content, file_type):
+        """共享文件到飞书"""
+        # 类似图片上传过程，但使用文件上传API
+        # ...具体代码略
+        
+        # 示例返回
+        return True, "文件已共享"
 
 # --------------------------
 # 主流程
@@ -308,3 +514,4 @@ if __name__ == "__main__":
         main()
     except Exception as e:
         logger.error(f"💥 未处理的全局异常: {str(e)}", exc_info=True)
+

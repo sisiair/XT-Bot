@@ -44,6 +44,8 @@ interface ProcessConfig {
     filterRetweets?: boolean;
     /** 是否过滤引用推文，默认true过滤 */
     filterQuotes?: boolean;
+    /** 最大重试次数，默认3次 */
+    maxRetries?: number;
 }
 
 // 主函数 -------------------------------------------------------------------------
@@ -64,7 +66,22 @@ export async function processTweetsByScreenName(
 
     try {
         // 步骤0: 设置环境配置 ---------------------------------------------------------
-        const mergedConfig = await loadAndMergeConfig(config);
+        let mergedConfig: ProcessConfig;
+        try {
+            mergedConfig = await loadAndMergeConfig(config);
+        } catch (configError) {
+            console.error(`⚠️ 配置加载失败，使用默认配置:`, configError instanceof Error ? configError.message : configError);
+            mergedConfig = {
+                contentType: config.contentType || 'tweets',
+                outputDir: config.contentType === 'media' ? '../resp/respMedia' : '../resp/respTweets',
+                forceRefresh: false,
+                interval: 5000,
+                limit: Infinity,
+                filterRetweets: true,
+                filterQuotes: true,
+                maxRetries: 3
+            };
+        }
 
         const {
             outputDir,
@@ -72,46 +89,92 @@ export async function processTweetsByScreenName(
             interval,
             limit,
             filterRetweets,
-            filterQuotes
+            filterQuotes,
+            maxRetries = 3
         } = mergedConfig;
 
         // 步骤1: 获取用户ID ---------------------------------------------------------
         console.log('🔍 正在查询用户信息...');
-        const userInfo = await getOrFetchUserInfo(screenName, client, forceRefresh);
-        console.log(`✅ 获取用户信息成功：
-          - 用户名: @${userInfo.screenName}
-          - 用户ID: ${userInfo.userId}`);
+        let userInfo: UserInfo;
+        try {
+            userInfo = await getOrFetchUserInfo(screenName, client, forceRefresh);
+            console.log(`✅ 获取用户信息成功：
+              - 用户名: @${userInfo.screenName}
+              - 用户ID: ${userInfo.userId}`);
+        } catch (userError) {
+            console.error(`❌ 获取用户信息失败:`, userError instanceof Error ? userError.message : userError);
+            throw new Error(`无法处理用户 @${screenName}: 获取用户信息失败`);
+        }
 
         // 步骤2: 定义输出路径 -------------------------------------------------------
         const outputFileName = `${userInfo.screenName}.json`;
         const finalOutputPath = path.join('../tweets/user/', outputFileName);
         const rawOutputDir = path.join(outputDir);
+        
         // 确保目录存在
-        fs.ensureDirSync(path.dirname(finalOutputPath));
-        fs.ensureDirSync(rawOutputDir);
+        try {
+            fs.ensureDirSync(path.dirname(finalOutputPath));
+            fs.ensureDirSync(rawOutputDir);
+        } catch (dirError) {
+            console.error(`⚠️ 创建目录失败:`, dirError instanceof Error ? dirError.message : dirError);
+            // 继续执行，可能会在后续写入文件时再次尝试创建目录
+        }
 
         // 步骤3: 获取并处理推文 -----------------------------------------------------
         console.log('⏳ 开始获取推文数据...');
-        const {processedCount, rawTweets} = await processTweets(
-            userInfo.userId,
-            client,
-            {
-                contentType: mergedConfig.contentType,
-                interval,
-                rawOutputDir,
-                limit
-            }
-        );
+        let processedCount = 0;
+        let rawTweets: any[] = [];
+        
+        try {
+            const result = await processTweets(
+                userInfo.userId,
+                client,
+                {
+                    contentType: mergedConfig.contentType,
+                    interval,
+                    rawOutputDir,
+                    limit,
+                    maxRetries
+                }
+            );
+            processedCount = result.processedCount;
+            rawTweets = result.rawTweets;
+        } catch (tweetsError) {
+            console.error(`⚠️ 获取推文数据时出错:`, tweetsError instanceof Error ? tweetsError.message : tweetsError);
+            console.log(`继续处理已获取的 ${rawTweets.length} 条推文...`);
+        }
 
         // 步骤4: 合并历史数据 -------------------------------------------------------
-        console.log('🔄 正在合并历史数据...');
-        const finalData = mergeAndSaveData(
-            finalOutputPath,
-            rawTweets,
-            userInfo.userId,
-            filterRetweets,
-            filterQuotes
-        );
+        let finalData: EnrichedTweet[] = [];
+        
+        try {
+            console.log('🔄 正在合并历史数据...');
+            finalData = mergeAndSaveData(
+                finalOutputPath,
+                rawTweets,
+                userInfo.userId,
+                filterRetweets,
+                filterQuotes
+            );
+        } catch (mergeError) {
+            console.error(`⚠️ 合并数据失败:`, mergeError instanceof Error ? mergeError.message : mergeError);
+            // 尝试基本处理
+            try {
+                finalData = rawTweets
+                    .map(tweet => transformTweet(tweet, userInfo.userId, filterRetweets, filterQuotes))
+                    .filter(Boolean) as EnrichedTweet[];
+                
+                // 尝试直接写入结果
+                try {
+                    await fs.writeJSON(finalOutputPath, finalData, { spaces: 2 });
+                    console.log(`✅ 已保存基本处理结果到 ${finalOutputPath}`);
+                } catch (writeError) {
+                    console.error(`❌ 写入基本结果失败:`, writeError instanceof Error ? writeError.message : writeError);
+                }
+            } catch (fallbackError) {
+                console.error(`❌ 基本处理也失败了:`, fallbackError instanceof Error ? fallbackError.message : fallbackError);
+            }
+        }
 
         // 最终统计 -----------------------------------------------------------------
         const timeCost = ((Date.now() - startTime) / 1000).toFixed(1);
@@ -127,7 +190,7 @@ export async function processTweetsByScreenName(
         return finalData;
 
     } catch (error) {
-        console.error(`❌ 处理用户 @${screenName} 失败：`, error);
+        console.error(`❌ 处理用户 @${screenName} 失败：`, error instanceof Error ? error.message : error);
         throw error;
     }
 }
@@ -145,24 +208,30 @@ async function loadAndMergeConfig(cliConfig: ProcessConfig): Promise<ProcessConf
         outputDir: '../resp/respTweets',
         forceRefresh: false,
         interval: 5000,
-        limit: Infinity,
+        limit: 50,
         filterRetweets: true,
-        filterQuotes: true
+        filterQuotes: true,
+        maxRetries: 3
     };
 
     // 尝试读取文件配置
     let fileConfig: ProcessConfig = {};
     try {
         const configPath = path.resolve(__dirname, '../../config/config.json');
-        fileConfig = await fs.readJSON(configPath);
-        console.log('✅ 配置文件加载成功');
+        if (fs.existsSync(configPath)) {
+            fileConfig = await fs.readJSON(configPath);
+            console.log('✅ 配置文件加载成功');
 
-        // 有效性过滤（防止无效类型覆盖）
-        fileConfig = {
-            interval: Number.isInteger(fileConfig?.interval) ? fileConfig.interval : undefined,
-            filterRetweets: typeof fileConfig?.filterRetweets === 'boolean' ? fileConfig.filterRetweets : undefined,
-            filterQuotes: typeof fileConfig?.filterQuotes === 'boolean' ? fileConfig.filterQuotes : undefined,
-        };
+            // 有效性过滤（防止无效类型覆盖）
+            fileConfig = {
+                interval: Number.isInteger(fileConfig?.interval) ? fileConfig.interval : undefined,
+                filterRetweets: typeof fileConfig?.filterRetweets === 'boolean' ? fileConfig.filterRetweets : undefined,
+                filterQuotes: typeof fileConfig?.filterQuotes === 'boolean' ? fileConfig.filterQuotes : undefined,
+                maxRetries: Number.isInteger(fileConfig?.maxRetries) ? fileConfig.maxRetries : undefined,
+            };
+        } else {
+            console.log('ℹ️ 未找到配置文件');
+        }
     } catch (e) {
         const error = e as Error & { code?: string };
         if (error.code === 'ENOENT') {
@@ -200,31 +269,47 @@ async function getOrFetchUserInfo(
 
     // 尝试读取缓存
     if (!forceRefresh && fs.existsSync(cachePath)) {
-        const cached = await fs.readJSON(cachePath);
-        if (cached.userId) {
-            console.log(`📦 使用缓存用户信息：@${screenName}`);
-            return cached;
+        try {
+            const cached = await fs.readJSON(cachePath);
+            if (cached.userId) {
+                console.log(`📦 使用缓存用户信息：@${screenName}`);
+                return cached;
+            }
+        } catch (cacheError) {
+            console.error(`⚠️ 读取缓存失败:`, cacheError instanceof Error ? cacheError.message : cacheError);
+            // 缓存错误时继续获取新数据
         }
     }
 
     // 调用API获取新数据
     console.log(`🌐 正在请求API获取用户信息：@${screenName}`);
-    const response = await client.getUserApi().getUserByScreenName({screenName});
+    try {
+        const response = await client.getUserApi().getUserByScreenName({screenName});
 
-    if (!response.data?.user?.restId) {
-        throw new Error(`未找到用户 @${screenName}`);
+        if (!response.data?.user?.restId) {
+            throw new Error(`未找到用户 @${screenName}`);
+        }
+
+        // 构建用户信息
+        const userInfo: UserInfo = {
+            screenName: screenName,
+            userId: response.data.user.restId
+        };
+
+        // 写入缓存
+        try {
+            fs.ensureDirSync(cacheDir);
+            await fs.writeJSON(cachePath, userInfo, {spaces: 2});
+        } catch (writeError) {
+            console.error(`⚠️ 写入缓存失败:`, writeError instanceof Error ? writeError.message : writeError);
+            // 缓存写入失败不影响主流程
+        }
+        
+        return userInfo;
+    } catch (apiError) {
+        console.error(`❌ API请求失败:`, apiError instanceof Error ? apiError.message : apiError);
+        throw new Error(`获取用户信息失败: ${apiError instanceof Error ? apiError.message : apiError}`);
     }
-
-    // 构建用户信息
-    const userInfo: UserInfo = {
-        screenName: screenName,
-        userId: response.data.user.restId
-    };
-
-    // 写入缓存
-    fs.ensureDirSync(cacheDir);
-    await fs.writeJSON(cachePath, userInfo, {spaces: 2});
-    return userInfo;
 }
 
 /**
@@ -238,12 +323,14 @@ async function processTweets(
         interval: number;
         rawOutputDir: string;
         limit: number;
+        maxRetries?: number;
     }
 ) {
     let pageCount = 0;
     let fileCounter = 1;
     let processedCount = 0;
     const rawTweets: any[] = [];
+    const maxRetries = options.maxRetries || 3;
 
     // 创建请求处理器
     const requestHandler = async (cursor?: string) => {

@@ -104,3 +104,153 @@ LARK_KEY      # 飞书机器人key(可选)https://open.feishu.cn/open-apis/bot/v
 ## 交流群 ✉️
 
 https://t.me/+SYZQ5CO4oLE3ZjI1
+
+## 自动获取和处理 Twitter/X 用户推文数据的工具。
+
+## 功能特点
+
+- 自动抓取指定用户的推文和媒体内容
+- 获取用户关注列表
+- 支持数据过滤（转推、引用等）
+- 错误重试和恢复机制
+- 支持 GitHub Actions 自动执行
+
+## 环境要求
+
+- Node.js 16+ 或 Bun 1.0+
+- Python 3.10+
+- Redis（可选）
+
+## 快速开始
+
+### 方法 1：使用安装脚本
+
+```bash
+# 克隆仓库
+git clone https://github.com/your-username/XT-Bot.git
+cd XT-Bot
+
+# 运行安装脚本
+chmod +x setup.sh
+./setup.sh
+```
+
+### 方法 2：手动设置
+
+```bash
+# 克隆仓库
+git clone https://github.com/your-username/XT-Bot.git
+cd XT-Bot
+
+# 创建必要的目录
+mkdir -p Python/{dataBase,downloads,logs,output}
+mkdir -p TypeScript/{data,logs,resp,tweets}
+mkdir -p config
+
+# 安装 TypeScript 依赖
+cd TypeScript
+bun install
+cd ..
+
+# 安装 Python 依赖
+cd Python
+pip install -r requirements.txt
+cd ..
+
+# 创建配置文件
+echo '{
+  "screenName": ["你的Twitter用户名"],
+  "interval": 5000,
+  "filterRetweets": true,
+  "filterQuotes": true,
+  "maxRetries": 3
+}' > config/config.json
+```
+
+## 环境变量配置
+
+在运行程序前，需要设置以下环境变量：
+
+- `AUTH_TOKEN`: Twitter API 认证令牌
+- `SCREEN_NAME`: 要抓取的 Twitter 用户名
+- `REDIS_CONFIG`（可选）: Redis 配置信息，JSON 格式
+
+### 设置环境变量示例
+
+```bash
+# Linux/macOS
+export AUTH_TOKEN="你的认证令牌"
+export SCREEN_NAME="你要抓取的用户名"
+
+# Windows
+set AUTH_TOKEN=你的认证令牌
+set SCREEN_NAME=你要抓取的用户名
+```
+
+## 使用方法
+
+### 获取用户推文和媒体
+
+```bash
+cd TypeScript/scripts
+bun run fetch-tweets-media.ts
+```
+
+### 获取用户关注列表
+
+```bash
+cd TypeScript/scripts
+bun run fetch-following.ts
+```
+
+### 运行 Python 处理脚本
+
+```bash
+cd Python/src
+python INI-XT-Bot.py
+```
+
+## GitHub Actions 自动化
+
+本项目支持通过 GitHub Actions 自动执行数据获取和处理流程。使用步骤：
+
+1. Fork 本仓库
+2. 在仓库设置中添加以下 Secrets:
+   - `GH_TOKEN`: GitHub 个人访问令牌
+   - `AUTH_TOKEN`: Twitter API 认证令牌
+   - `SCREEN_NAME`: 要抓取的 Twitter 用户名
+   - `LARK_KEY` 等其他可选配置（如需使用飞书通知）
+3. 手动触发 "INI-XT-Bot" 工作流或设置定时触发
+
+## 文件结构
+
+```
+XT-Bot/
+├── .github/workflows/  # GitHub Actions 工作流配置
+├── Python/             # Python 代码
+│   ├── src/            # 源代码
+│   ├── utils/          # 工具函数
+│   ├── dataBase/       # 数据库文件
+│   ├── logs/           # 日志文件
+│   └── output/         # 输出文件
+├── TypeScript/         # TypeScript 代码
+│   ├── scripts/        # 脚本文件
+│   ├── utils/          # 工具函数
+│   ├── data/           # 处理后的数据
+│   ├── logs/           # 日志文件
+│   ├── resp/           # API 响应数据
+│   └── tweets/         # 处理后的推文数据
+└── config/             # 配置文件
+```
+
+## 错误处理
+
+如果遇到 API 调用失败或其他错误，程序会自动重试，并在控制台输出详细错误信息。常见错误：
+
+- `No data`: Twitter API 未返回数据，可能是认证令牌过期或用户不存在
+- `API请求失败`: 网络连接问题或 API 限流
+- `未设置环境变量`: 缺少必要的环境变量配置
+
+## 贡献指南
+
+欢迎提交 Issue 和 Pull Request 来改进本项目。提交前请确保代码符合项目的代码风格和测试要求。

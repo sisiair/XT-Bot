@@ -1,5 +1,14 @@
 {
   "screenName": [
-    "向阳乔木","宝玉","小互","AIGCLINK","歸藏(guizang.ai)"
-  ]
+    "vista8",
+    "dotey",
+    "imxiaohu",
+    "AIGCLINK",
+    "op7418"
+  ],
+  "interval": 10000,
+  "filterRetweets": true,
+  "filterQuotes": true,
+  "maxRetries": 2,
+  "limit": 10
 }

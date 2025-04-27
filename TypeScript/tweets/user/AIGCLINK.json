@@ -1,0 +1,1371 @@
+[
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [
+      "https://pbs.twimg.com/media/GodAKzwWMAAsbUG.jpg"
+    ],
+    "videos": [],
+    "expandUrls": [],
+    "tweetUrl": "https://x.com/aigclink/status/1911573245696024673",
+    "fullText": "MCP生态\n6行代码即可创建你的第一个支持MCP的智能体：mcp-use，LLM与工具链接，让LLM变成可以执行操作的智能体\n\n可以让LLM使用工具浏览网页搜索信息，在Airbnb上查找房源，使用3D建模软件，操作文件等等\n\n1、支持任何LangChain支持的且具有工具调用功能的LLM https://t.co/w5fByUd9rV",
+    "publishTime": "2025-04-14T08:12:31"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [],
+    "videos": [],
+    "expandUrls": [
+      "https://github.com/mcp-use/mcp-use"
+    ],
+    "tweetUrl": "https://x.com/aigclink/status/1911573249261199396",
+    "fullText": "github：https://t.co/ph6OfABCTJ",
+    "publishTime": "2025-04-14T08:12:32"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [],
+    "videos": [
+      "https://video.twimg.com/amplify_video/1911616521144582144/vid/avc1/1280x720/_cPolA3jmcHF7PAA.mp4?tag=14"
+    ],
+    "expandUrls": [],
+    "tweetUrl": "https://x.com/aigclink/status/1911617694971154712",
+    "fullText": "MCP生态\n牛B，基于MCP让穿戴设备通过语音指令执行实际操作！\n\n比如，你可以说 \"嘿，Omi，创建一个GitHub issue\"，它就会自动帮你完成在GitHub上创建 issue操作，解放双手\n\n相当于它把你的生活和开发工作流连接起来，你只需要捕捉灵感+动嘴就可以，不用再打开电脑或手机操作，就非常便捷\n\n#MCP #Omi https://t.co/dlTxAJmGlI",
+    "publishTime": "2025-04-14T11:09:09"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [],
+    "videos": [
+      "https://video.twimg.com/amplify_video/1911693234440470528/vid/avc1/720x748/YmyX3282Zl68oCkT.mp4?tag=14"
+    ],
+    "expandUrls": [],
+    "tweetUrl": "https://x.com/aigclink/status/1911694319783973010",
+    "fullText": "基于Claude 3.7 Sonnet的一款浏览器智能体：index，可以自主在网页上执行复杂的任务，具备扩展思维能力，可以理解复杂指令，进行多步推理和操作\n\n用自然语言描述任务，即可理解执行，可以用来总结网页内容、填写表单、操作网页元素等等\n\n集成了Laminar，可以追踪助手的操作并记录浏览器会话 https://t.co/ntfRHCwnGa",
+    "publishTime": "2025-04-14T16:13:38"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [],
+    "videos": [],
+    "expandUrls": [
+      "https://github.com/lmnr-ai/index"
+    ],
+    "tweetUrl": "https://x.com/aigclink/status/1911694322468266181",
+    "fullText": "github：https://t.co/uEhmwxVsMb",
+    "publishTime": "2025-04-14T16:13:38"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [],
+    "videos": [
+      "https://video.twimg.com/amplify_video/1911759020144136192/vid/avc1/1280x720/i-i--PpItHb2h6wt.mp4?tag=14"
+    ],
+    "expandUrls": [],
+    "tweetUrl": "https://x.com/aigclink/status/1911760280788640078",
+    "fullText": "微软刚刚放出了一个基于《我的世界》的实时开源交互式世界模型：MineWorld，它可以根据玩家的动作预测游戏世界接下来的变化，并实时生成新的游戏画面\n\n它的核心是一个视觉动作自回归Transformer模型，它接收游戏场景和对应玩家动作的配对数据作为输入，预测接下来的新场景 https://t.co/C5ITCeqaFd",
+    "publishTime": "2025-04-14T20:35:44"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [],
+    "videos": [],
+    "expandUrls": [
+      "https://github.com/microsoft/MineWorld"
+    ],
+    "tweetUrl": "https://x.com/aigclink/status/1911760283984699857",
+    "fullText": "github：https://t.co/pNJNkGTeq1",
+    "publishTime": "2025-04-14T20:35:45"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [],
+    "videos": [
+      "https://video.twimg.com/amplify_video/1911895151326187520/vid/avc1/1406x720/6ZWVol7V8QgO5t9D.mp4?tag=14"
+    ],
+    "expandUrls": [
+      "https://openai.com/index/gpt-4-1/"
+    ],
+    "tweetUrl": "https://x.com/aigclink/status/1911895830195576883",
+    "fullText": "博客：https://t.co/e8ZgckXdpR https://t.co/vJ18Oaob7n",
+    "publishTime": "2025-04-15T05:34:21"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [
+      "https://pbs.twimg.com/media/Goim3vZXUAA8T8-.jpg"
+    ],
+    "videos": [],
+    "expandUrls": [],
+    "tweetUrl": "https://x.com/aigclink/status/1911962634490192233",
+    "fullText": "一款开源的AI视频笔记生成工具：BiliNote，支持从B站、YouTube等平台视频自动生成笔记\n\n可自动提取内容生成结构清晰的Markdown格式笔记，支持插入截图、原片跳转等功能\n\n支持使用本地模型（比如Fast-Whisper）进行音频转写，支持多种LLM (OpenAI、DeepSeek、Qwen)\n\n#AI视频笔记工具 #BiliNote https://t.co/wtWmFtMpo0",
+    "publishTime": "2025-04-15T09:59:49"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [],
+    "videos": [],
+    "expandUrls": [
+      "https://github.com/JefferyHcool/BiliNote"
+    ],
+    "tweetUrl": "https://x.com/aigclink/status/1911962638097293746",
+    "fullText": "github：https://t.co/ynLkLpXFjs",
+    "publishTime": "2025-04-15T09:59:50"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [],
+    "videos": [
+      "https://video.twimg.com/amplify_video/1911976527186534400/vid/avc1/1300x720/C-igyXYiSGM-4QkO.mp4?tag=14"
+    ],
+    "expandUrls": [],
+    "tweetUrl": "https://x.com/aigclink/status/1911977415913717781",
+    "fullText": "智谱即将要开源新的9B/32B系列模型！GLM-4-32B、GLM-Z1-32B、GLM-Z1-9B、GLM-Z1-Rumination-32B\n\n1、GLM-4-32B，基座模型， 320亿参数，擅长代码生成、文档创作\n\n2、GLM-Z1-32B，推理模型，基于基座模型强化了推理能力，擅长数学、代码、逻辑，推理速度快（200 https://t.co/BiWgY50OdK",
+    "publishTime": "2025-04-15T10:58:33"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [],
+    "videos": [],
+    "expandUrls": [
+      "https://chat.z.ai/"
+    ],
+    "tweetUrl": "https://x.com/aigclink/status/1911977418568712324",
+    "fullText": "体验地址：https://t.co/uGXagC19K6",
+    "publishTime": "2025-04-15T10:58:34"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [
+      "https://pbs.twimg.com/media/GokFZs7WIAAeBYE.png"
+    ],
+    "videos": [],
+    "expandUrls": [],
+    "tweetUrl": "https://x.com/aigclink/status/1912066205407748217",
+    "fullText": "把Claude的工具能力移植到本地模型的Ollama MCP工具：ollama-mcp-bridge\n\n使本地AI助手具备文件操作、网络搜索、邮件以及文档管理、代码和GitHub交互、图像生成以及持久内存等能力\n\n支持多个MCP，具备动态工具路由功能，支持结构化的输出验证，可根据提示自动检测工具\n\n#MCP #ollamamcp https://t.co/EpWI67wRGY",
+    "publishTime": "2025-04-15T16:51:22"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [],
+    "videos": [],
+    "expandUrls": [
+      "https://github.com/patruff/ollama-mcp-bridge"
+    ],
+    "tweetUrl": "https://x.com/aigclink/status/1912066208960270587",
+    "fullText": "github：https://t.co/wX7nLhRh52",
+    "publishTime": "2025-04-15T16:51:23"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [
+      "https://pbs.twimg.com/media/Gono3HFWgAAPFZl.jpg"
+    ],
+    "videos": [],
+    "expandUrls": [],
+    "tweetUrl": "https://x.com/aigclink/status/1912316244386279629",
+    "fullText": "节字、华科大/港大等放出的一个可以把视觉理解和生成无缝集成的多模态LLM：Liquid\n\n核心是其统一的生成能力，能看懂图片文字，能生成图片和文字，用一个模型就能完成\n\n无需外部视觉模型，它通过将图像转为离散编码实现与文本的统一处理\n\nFID分数5.47 (MJHQ-30K https://t.co/pJlDP9YCk7",
+    "publishTime": "2025-04-16T09:24:56"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [
+      "https://pbs.twimg.com/media/Gono0D6XkAAhCWQ.jpg"
+    ],
+    "videos": [],
+    "expandUrls": [
+      "https://github.com/FoundationVision/Liquid",
+      "https://huggingface.co/Junfeng5/Liquid_V1_7B"
+    ],
+    "tweetUrl": "https://x.com/aigclink/status/1912316250832945640",
+    "fullText": "github：https://t.co/mfpmzIrL08\n模型：https://t.co/i6fyglU8cp https://t.co/P2H142hsKf",
+    "publishTime": "2025-04-16T09:24:57"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [],
+    "videos": [],
+    "expandUrls": [
+      "https://www.anthropic.com/news/research"
+    ],
+    "tweetUrl": "https://x.com/aigclink/status/1912326742863409161",
+    "fullText": "博客：https://t.co/ybze4FKeHP",
+    "publishTime": "2025-04-16T10:06:39"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [],
+    "videos": [
+      "https://video.twimg.com/amplify_video/1912339709746917376/vid/avc1/1408x1080/ilokx6Un_OMbAsNB.mp4?tag=16"
+    ],
+    "expandUrls": [],
+    "tweetUrl": "https://x.com/aigclink/status/1912342413148057642",
+    "fullText": "Grok-3刚刚大更新，增加了Grok Studio！\n现在可以生成文档、代码、报告以及浏览器游戏，并提供协作环境，会给一个独立窗口与AI协同编辑\n\n实时预览，写完代码可以立即运行查看效果，支持多种编程语言\n\n与Google Drive集成，Grok可以直接访问处理Drive上的文件\n\n面向所有用户开放，包括免费和付费用户 https://t.co/6J1IZOf5ya",
+    "publishTime": "2025-04-16T11:08:55"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [],
+    "videos": [
+      "https://video.twimg.com/amplify_video/1912339956996997120/vid/avc1/1400x1080/l4COqqnZO3F97Iem.mp4?tag=16"
+    ],
+    "expandUrls": [
+      "http://grok.com"
+    ],
+    "tweetUrl": "https://x.com/aigclink/status/1912342417090777152",
+    "fullText": "地址：https://t.co/y7u6imLjbz https://t.co/QRcJ4LBOCm",
+    "publishTime": "2025-04-16T11:08:56"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [],
+    "videos": [
+      "https://video.twimg.com/amplify_video/1912418332843626496/vid/avc1/1280x720/bPvk8RWrB6LPhoTG.mp4?tag=16"
+    ],
+    "expandUrls": [],
+    "tweetUrl": "https://x.com/aigclink/status/1912420726281576911",
+    "fullText": "Firecrawl新出了一个具备网页智能交互能力AI数据抓取工具：FIRE-1\n\n就是说除了抓取静态网页，还能与网页交互，比如点击按钮、填写表单、处理模态窗口等，使得它能抓取到隐藏在交互操作背后的数据\n\n提供清晰的导航指令，FIRE-1即能自动完成网页导航和数据提取任务\n\n#Firecrawl #FIRE1 https://t.co/mVrgaSwfey",
+    "publishTime": "2025-04-16T16:20:06"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [
+      "https://pbs.twimg.com/media/GopFeGWWYAADO5l.jpg"
+    ],
+    "videos": [],
+    "expandUrls": [
+      "https://docs.firecrawl.dev/agents/fire-1"
+    ],
+    "tweetUrl": "https://x.com/aigclink/status/1912420730387804278",
+    "fullText": "文档：https://t.co/OiPU0UzeEY https://t.co/zR2MyhEA68",
+    "publishTime": "2025-04-16T16:20:07"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [],
+    "videos": [],
+    "expandUrls": [
+      "https://github.com/openai/codex",
+      "https://openai.com/index/thinking-with-images/"
+    ],
+    "tweetUrl": "https://x.com/aigclink/status/1912645752024887384",
+    "fullText": "OpenAI Codex CLI github：https://t.co/CzN7jJLyJW\n博客：https://t.co/NUtol3NQdE",
+    "publishTime": "2025-04-17T07:14:17"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [],
+    "videos": [
+      "https://video.twimg.com/amplify_video/1912684564834844672/vid/avc1/478x850/rsLj05V2rQoDt_sa.mp4?tag=16"
+    ],
+    "expandUrls": [],
+    "tweetUrl": "https://x.com/aigclink/status/1912685679504683267",
+    "fullText": "前两天比较火的droidrun刚刚开源了，可以用LLM通过自然语言命令控制你的Android手机\n\n你可以用它帮你社交媒体自动化，比如，打开X，并发布“Hello World”；或者“打开微信，给张三发消息说晚上一起吃饭”；或做自动化测试等\n\n主要由两部分组成：\n1、LLM智能体: https://t.co/msHpnLdS7V",
+    "publishTime": "2025-04-17T09:52:56"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [],
+    "videos": [
+      "https://video.twimg.com/amplify_video/1912684626415611904/vid/avc1/848x478/3TpHXNzHWoplNCsw.mp4?tag=16"
+    ],
+    "expandUrls": [
+      "https://github.com/droidrun/droidrun",
+      "https://docs.droidrun.ai/introduction"
+    ],
+    "tweetUrl": "https://x.com/aigclink/status/1912685682864320862",
+    "fullText": "github：https://t.co/WUeg4nSILb\n文档：https://t.co/5X6lqPsTaL https://t.co/PupWVBeo0X",
+    "publishTime": "2025-04-17T09:52:57"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [
+      "https://pbs.twimg.com/media/GotJBpPbAAAo6Yz.jpg"
+    ],
+    "videos": [],
+    "expandUrls": [],
+    "tweetUrl": "https://x.com/aigclink/status/1912704624454431018",
+    "fullText": "具备记忆能力的一款审批自动化AI工具：LLManager，可以用它做智能审批管理系统\n比如人力资源审批，文字内容审批，或者贷款资质审批等\n\n核心特点是它可以通过反思和学习不断改进自己的决策能力，从人工修正中学习，通过自我反思总结经验 https://t.co/f3ynfBjGQG",
+    "publishTime": "2025-04-17T11:08:13"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [],
+    "videos": [],
+    "expandUrls": [
+      "https://github.com/langchain-ai/llmanager"
+    ],
+    "tweetUrl": "https://x.com/aigclink/status/1912704626815824157",
+    "fullText": "github：https://t.co/CoXksHtFbD",
+    "publishTime": "2025-04-17T11:08:14"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [],
+    "videos": [
+      "https://video.twimg.com/tweet_video/GouQ1ioa8AATVxF.mp4"
+    ],
+    "expandUrls": [],
+    "tweetUrl": "https://x.com/aigclink/status/1912782249352966423",
+    "fullText": "FastAPI-MCP：可以把任意FastAPI应用变成 MCP服务器\n\nFastAPI-MCP是一个近乎零配置的工具，用于自动把FastAPI接口转换为MCP工具\n\n比如，你让Claude执行：\"帮我给用户ID为12345的用户发送一封提醒邮件\"，Claude就能直接调用你的发邮件API，无需写代码或手动，它就知道怎么正确使用这个API https://t.co/Jeoq3fUfYJ",
+    "publishTime": "2025-04-17T16:16:40"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [],
+    "videos": [],
+    "expandUrls": [
+      "https://github.com/tadata-org/fastapi_mcp"
+    ],
+    "tweetUrl": "https://x.com/aigclink/status/1912782252284817745",
+    "fullText": "github：https://t.co/KISJ3cdPEw",
+    "publishTime": "2025-04-17T16:16:41"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [],
+    "videos": [
+      "https://video.twimg.com/amplify_video/1912887328160550912/vid/avc1/1280x720/AVlrQVo9dhcRbTaI.mp4?tag=16"
+    ],
+    "expandUrls": [],
+    "tweetUrl": "https://x.com/aigclink/status/1912888658861924857",
+    "fullText": "阿里刚刚开源了首尾帧生视频模型：Wan2.1-FLF2V-14B，支持生成5秒 720p高清视频\n\n只需提供两张照片作为首帧和尾帧，即可自动生成一段高清视频。从效果看运动比较流畅，首尾帧过渡上相对平滑 https://t.co/fdAQLb7QFg",
+    "publishTime": "2025-04-17T23:19:30"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [],
+    "videos": [
+      "https://video.twimg.com/amplify_video/1912883455983329280/vid/avc1/1116x1080/KOORFt6COcJ-RJcY.mp4?tag=16"
+    ],
+    "expandUrls": [
+      "https://github.com/Wan-Video/Wan2.1"
+    ],
+    "tweetUrl": "https://x.com/aigclink/status/1912888664054808790",
+    "fullText": "Github：https://t.co/TY4meHOPU1 https://t.co/hZhhcAeUYY",
+    "publishTime": "2025-04-17T23:19:31"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [],
+    "videos": [
+      "https://video.twimg.com/amplify_video/1912883528716673024/vid/avc1/1080x1254/PtGz6Fk7UeaoqKCe.mp4?tag=16"
+    ],
+    "expandUrls": [
+      "https://huggingface.co/Wan-AI/Wan2.1-FLF2V-14B-720P"
+    ],
+    "tweetUrl": "https://x.com/aigclink/status/1912888667661799803",
+    "fullText": "模型：https://t.co/Ml9bxdQkrf https://t.co/qwGJIslBAu",
+    "publishTime": "2025-04-17T23:19:32"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [
+      "https://pbs.twimg.com/media/GoxbMkRakAAMcNn.jpg"
+    ],
+    "videos": [],
+    "expandUrls": [],
+    "tweetUrl": "https://x.com/aigclink/status/1913006638837191019",
+    "fullText": "谷歌清晨放出了Gemini 2.5 Flash preview，首个完全混合推理模型，可以开启/关闭思考功能，价格只有o4-mini的十分之一\n\n可设置思考预算，预算范围0-24576 token，其会根据任务复杂度自动决定思考量\n\n关闭“思考”功能， 也能保持2.0 Flash的速度且性能更强 https://t.co/A6PSJYTgbS",
+    "publishTime": "2025-04-18T07:08:19"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [
+      "https://pbs.twimg.com/media/GoxcO6kbYAAU7Ao.jpg"
+    ],
+    "videos": [],
+    "expandUrls": [
+      "https://developers.googleblog.com/en/start-building-with-gemini-25-flash/"
+    ],
+    "tweetUrl": "https://x.com/aigclink/status/1913006643010474072",
+    "fullText": "博客：https://t.co/IxWGQjaaoV https://t.co/JkOKK5we46",
+    "publishTime": "2025-04-18T07:08:20"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [],
+    "videos": [
+      "https://video.twimg.com/amplify_video/1913045973779312640/vid/avc1/1920x1080/KrEsOIWqsExKr_19.mp4?tag=16"
+    ],
+    "expandUrls": [],
+    "tweetUrl": "https://x.com/aigclink/status/1913051340814917793",
+    "fullText": "概念不错，一款LLM通用记忆MCP：Supermemory MCP，作用是让不同的AI，比如ChatGPT、Windsurf、Claude等之间可以共享上下文\n\n也就是说你与一个LLM的对话内容可以被其他LLM访问和使用，实现更连贯的对话体验\n\n目前，它的记忆只基于用户与LLM的互动更新，或许扩展到连接Google Drive、Notion等个人应用 https://t.co/5NMdsQuHGO",
+    "publishTime": "2025-04-18T10:05:57"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [],
+    "videos": [],
+    "expandUrls": [
+      "https://mcp.supermemory.ai/"
+    ],
+    "tweetUrl": "https://x.com/aigclink/status/1913051343474115000",
+    "fullText": "网站：https://t.co/iXmCJQKuX8",
+    "publishTime": "2025-04-18T10:05:57"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [],
+    "videos": [
+      "https://video.twimg.com/amplify_video/1913062739960102912/vid/avc1/1380x1080/HE3tz2kozOCQNZrd.mp4?tag=16"
+    ],
+    "expandUrls": [],
+    "tweetUrl": "https://x.com/aigclink/status/1913066967231246359",
+    "fullText": "这个视频生成模型增强器火了，FramePack，使用6GB笔记本GPU就能以30fps的速度用13B模型生成数千帧视频\n\nFramePack是一个逐步生成视频的下一帧预测神经网络结构，它能将输入内容压缩到固定长度，这样生成视频的工作负载就不会随视频长度增加而变化 https://t.co/PR9FwPE8YI",
+    "publishTime": "2025-04-18T11:08:02"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [],
+    "videos": [],
+    "expandUrls": [
+      "https://github.com/lllyasviel/FramePack",
+      "https://lllyasviel.github.io/frame_pack_gitpage/"
+    ],
+    "tweetUrl": "https://x.com/aigclink/status/1913066969831751882",
+    "fullText": "github：https://t.co/5xeg5BITFb\n项目：https://t.co/hD0jRn946c",
+    "publishTime": "2025-04-18T11:08:03"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [
+      "https://pbs.twimg.com/media/GozdIygaAAAN2Ri.jpg"
+    ],
+    "videos": [],
+    "expandUrls": [],
+    "tweetUrl": "https://x.com/aigclink/status/1913147857856811387",
+    "fullText": "一款日常任务自动化的开源通用AI智能体：CortexON，能执行复杂工作流程，比如自动化研究、技术操作、复杂业务流程自动化等\n\nCortexON集成了Web智能体、文件智能体、编辑器智能体、执行器智能体、API智能体等，多智能体协作 https://t.co/4mTXJ37Wlj",
+    "publishTime": "2025-04-18T16:29:28"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [],
+    "videos": [],
+    "expandUrls": [
+      "https://github.com/TheAgenticAI/CortexON"
+    ],
+    "tweetUrl": "https://x.com/aigclink/status/1913147860918403500",
+    "fullText": "github：https://t.co/zrwbgSqkCJ",
+    "publishTime": "2025-04-18T16:29:29"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [
+      "https://pbs.twimg.com/media/GozmrdybIAAcHO8.jpg"
+    ],
+    "videos": [],
+    "expandUrls": [],
+    "tweetUrl": "https://x.com/aigclink/status/1913158291162587404",
+    "fullText": "exa-mcp-server：通过MCP，AI助手通过Exa获得实时网络信息获取的能力\n\n1、提供结构化的搜索结果，返回包括标题、URL以及内容片段在内的结构化结果\n\n2、会把最近的搜索结果缓存为资源，下次再搜索相同的内容时可以直接使用缓存\n\n3、提供了对速率限制和错误的处理机制\n4、支持实时网络爬取\n\n#MCP #examcp https://t.co/7bgAzaCFmE",
+    "publishTime": "2025-04-18T17:10:56"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [],
+    "videos": [],
+    "expandUrls": [
+      "https://github.com/exa-labs/exa-mcp-server"
+    ],
+    "tweetUrl": "https://x.com/aigclink/status/1913158294803554588",
+    "fullText": "github：https://t.co/43i16OvcgU",
+    "publishTime": "2025-04-18T17:10:56"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [
+      "https://pbs.twimg.com/media/Go0WZYpakAAANnz.jpg",
+      "https://pbs.twimg.com/media/Go0WaKcagAAqonl.jpg",
+      "https://pbs.twimg.com/media/Go0WbVka8AEWwjT.jpg"
+    ],
+    "videos": [],
+    "expandUrls": [],
+    "tweetUrl": "https://x.com/aigclink/status/1913211134544601182",
+    "fullText": "【重磅】coze总算支持MCP了，今天下午发布新产品coze空间，使用体验类似于manus，可调用各种mcp服务完成复杂任务，同时即将允许用户将「扣子开发平台」MCP发布至「扣子空间」。 https://t.co/Wb2V4zSuGU",
+    "publishTime": "2025-04-18T20:40:54"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [],
+    "videos": [],
+    "expandUrls": [
+      "https://www.coze.cn/space-preview?invite_code=5TQ03LH9",
+      "https://www.coze.cn/space-preview?invite_code=4KJRTFK6",
+      "https://www.coze.cn/space-preview?invite_code=51HZK42J",
+      "https://www.coze.cn/space-preview?invite_code=ZM5CCO0H"
+    ],
+    "tweetUrl": "https://x.com/aigclink/status/1913211283882876936",
+    "fullText": "内侧码，先到先得：\nhttps://t.co/75crnP95C7\n\nhttps://t.co/9t67CkPak0\n\nhttps://t.co/Ey5RMlgf0j\n\nhttps://t.co/KCT3BaTJT4",
+    "publishTime": "2025-04-18T20:41:30"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [
+      "https://pbs.twimg.com/media/Go31UKfbYAA0_n8.jpg"
+    ],
+    "videos": [],
+    "expandUrls": [],
+    "tweetUrl": "https://x.com/aigclink/status/1913455597892387035",
+    "fullText": "字节开源了用于游戏操作和GUI任务的多模态AI智能体，UI-TARS-1.5，较上一下版本推理能力增强，在执行行动前会先思考\n\n在OSworld、WebVoyager、Android World等测试中，性能优于OpenAI CUA、Claude 3.7等\n\n在Poki游戏测试中基本上达到了100%完成率 https://t.co/GGBU4yvYhA",
+    "publishTime": "2025-04-19T12:52:19"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [],
+    "videos": [
+      "https://video.twimg.com/amplify_video/1913446390954696704/vid/avc1/1920x1080/_GlfWK3rpCVSf-2J.mp4?tag=16"
+    ],
+    "expandUrls": [
+      "https://huggingface.co/ByteDance-Seed/UI-TARS-1.5-7B"
+    ],
+    "tweetUrl": "https://x.com/aigclink/status/1913455602287956304",
+    "fullText": "模型：https://t.co/kYvbndKp4F https://t.co/EwpFAj89Az",
+    "publishTime": "2025-04-19T12:52:20"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [
+      "https://pbs.twimg.com/media/Go5hFXEa8AAXCLC.jpg"
+    ],
+    "videos": [],
+    "expandUrls": [],
+    "tweetUrl": "https://x.com/aigclink/status/1913576206060208454",
+    "fullText": "一款用于构建、测试和优化智能体工作流的开源工具：Sim Studio\n\n提供可视化编辑环境，支持节点式工作流设计\n支持本地AI模型\n\n可以用来开发聊天机器人、工作流自动化、设计智能处理流程等\n\n#AIagent #AI助手 #SimStudio https://t.co/DIHodImBy1",
+    "publishTime": "2025-04-19T20:51:34"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [],
+    "videos": [],
+    "expandUrls": [
+      "https://github.com/simstudioai/sim"
+    ],
+    "tweetUrl": "https://x.com/aigclink/status/1913576209046294573",
+    "fullText": "github：https://t.co/3M6HiOk6k0",
+    "publishTime": "2025-04-19T20:51:35"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [
+      "https://pbs.twimg.com/media/Go79s0dbEAAXDQ4.jpg"
+    ],
+    "videos": [],
+    "expandUrls": [],
+    "tweetUrl": "https://x.com/aigclink/status/1913766833561415845",
+    "fullText": "Anthropic官方发布的：Claude Code智能编程最佳实践指南，经其内部使用和社区反馈的经验，整理而成的工作流程和技巧\n\n几个关键点：\n\n1、自定义设置:\n（1）创建 CLAUDE文件: https://t.co/0dbaiMGu1M",
+    "publishTime": "2025-04-20T09:29:03"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [],
+    "videos": [],
+    "expandUrls": [
+      "https://www.anthropic.com/engineering/claude-code-best-practices"
+    ],
+    "tweetUrl": "https://x.com/aigclink/status/1913766836887560198",
+    "fullText": "博客：https://t.co/56bvuHda5t",
+    "publishTime": "2025-04-20T09:29:04"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [
+      "https://pbs.twimg.com/media/Go933JbbEAAX1jV.jpg"
+    ],
+    "videos": [],
+    "expandUrls": [],
+    "tweetUrl": "https://x.com/aigclink/status/1913884342931399153",
+    "fullText": "微软发布了一个文档转换MCP：markitdown-mcp，用于将网页链接(http/https)、本地文件以及数据转换为Markdown格式！\n\n主要是调用MarkItDown进行格式转换。可以通过Docker运行或直接安装，也可以与Claude等AI工具集成使用\n\n#MCP #markitdown https://t.co/1UaENkQDQd",
+    "publishTime": "2025-04-20T17:16:00"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [],
+    "videos": [],
+    "expandUrls": [
+      "https://github.com/microsoft/markitdown/tree/main/packages/markitdown-mcp"
+    ],
+    "tweetUrl": "https://x.com/aigclink/status/1913884346697826798",
+    "fullText": "github：https://t.co/w2LbMhyPnn",
+    "publishTime": "2025-04-20T17:16:01"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [
+      "https://pbs.twimg.com/media/GpBfu_ObEAAKCmk.jpg"
+    ],
+    "videos": [],
+    "expandUrls": [],
+    "tweetUrl": "https://x.com/aigclink/status/1914137753920672227",
+    "fullText": "Cohere在微软Azure AI Foundry上新了两款模型，用以增强RAG和智能体AI工作流！\n\n1、Embed 4:  多模态多语言嵌入模型，适用于RAG和语义搜索\n1）支持100多种语言的文本嵌入\n2）支持图像嵌入\n3）具有Matryoshka嵌入（可伸缩维度）\n4）支持int8量化和二进制嵌入输出，降低存储占用并提高搜索速度 https://t.co/D7HM9AEa76",
+    "publishTime": "2025-04-21T10:02:58"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [],
+    "videos": [],
+    "expandUrls": [
+      "https://techcommunity.microsoft.com/blog/aiplatformblog/unlock-multi-modal-embed-4-and-multilingual-agentic-rag-with-command-a-on-azure/4404458"
+    ],
+    "tweetUrl": "https://x.com/aigclink/status/1914137756814696775",
+    "fullText": "博客：https://t.co/xy07nvoVrZ",
+    "publishTime": "2025-04-21T10:02:58"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [],
+    "videos": [
+      "https://video.twimg.com/amplify_video/1914143662029869056/vid/avc1/720x772/xspAVQUejU61jrsu.mp4?tag=16"
+    ],
+    "expandUrls": [],
+    "tweetUrl": "https://x.com/aigclink/status/1914150674113470899",
+    "fullText": "一图看懂LLM的函数调用和MCP的区别 https://t.co/vqmb6s7upm",
+    "publishTime": "2025-04-21T10:54:18"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [],
+    "videos": [
+      "https://video.twimg.com/amplify_video/1914145085463359488/vid/avc1/1030x428/jbBEvUeWzcCrV8OB.mp4?tag=16"
+    ],
+    "expandUrls": [],
+    "tweetUrl": "https://x.com/aigclink/status/1914150677741490632",
+    "fullText": "函数调用是：\n1、LLM接收到用户的输入，比如一个查询或指令\n2、LLM根据提示内容决定需要调用哪个工具，比如天气API或数据库查询\n3、程序员需要编写代码，实现如何接收LLM的工具调用请求，并将其转换为具体的函数调用\n4、后端服务，比如API服务执行具体的工具调用，并返回结果 https://t.co/pjo4paBjzg",
+    "publishTime": "2025-04-21T10:54:19"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [],
+    "videos": [
+      "https://video.twimg.com/amplify_video/1914146493650608128/vid/avc1/986x568/kFC0b4fEt47DYCbJ.mp4?tag=16"
+    ],
+    "expandUrls": [],
+    "tweetUrl": "https://x.com/aigclink/status/1914150682724274361",
+    "fullText": "函数调用需要开发者手动编写代码来集成和管理工具，而MCP将其标准化\n\n1、MCP标准化了工具的定义、托管和公开\n2、LLM可以更容易地发现和使用这些工具，而不需要手动配置\n3、MCP在调用工具之前需要获得批准，增加了安全性 https://t.co/87SO8usby0",
+    "publishTime": "2025-04-21T10:54:20"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [
+      "https://pbs.twimg.com/media/GpC5N3IbcAAzwb-.jpg"
+    ],
+    "videos": [],
+    "expandUrls": [],
+    "tweetUrl": "https://x.com/aigclink/status/1914233681415487755",
+    "fullText": "基于人类大脑工作原理设计的一款AI记忆系统：HawkinsDB，让AI可以像人类一样存储和回忆信息\n\n它基于Jeff Hawkins的“千脑理论”，帮助AI模型以更强大且直观的方式管理复杂信息 https://t.co/ZT2r4wFS6d",
+    "publishTime": "2025-04-21T16:24:09"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [],
+    "videos": [],
+    "expandUrls": [
+      "https://github.com/harishsg993010/HawkinsDB"
+    ],
+    "tweetUrl": "https://x.com/aigclink/status/1914233684338884828",
+    "fullText": "github：https://t.co/De6YmyiJZo",
+    "publishTime": "2025-04-21T16:24:09"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [
+      "https://pbs.twimg.com/media/GpC8tcLboAAMf35.jpg"
+    ],
+    "videos": [],
+    "expandUrls": [],
+    "tweetUrl": "https://x.com/aigclink/status/1914239676053066204",
+    "fullText": "一款基于LangGraph的AI智能体系统：langgraph-mcp-agents，集成了MCP，使AI助手能访问各种数据源和API\n\n1、提供了Streamlit网页界面，方便与LangGraph和MCP工具交互\n\n2、可以通过界面动态添加、删除以及配置MCP工具，无需重启应用，支持Smithery JSON格式 https://t.co/PQ4gMNdxoj",
+    "publishTime": "2025-04-21T16:47:58"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [
+      "https://pbs.twimg.com/media/GpC-v5PaYAA_Rnv.jpg"
+    ],
+    "videos": [],
+    "expandUrls": [
+      "https://github.com/teddynote-lab/langgraph-mcp-agents"
+    ],
+    "tweetUrl": "https://x.com/aigclink/status/1914239680624877726",
+    "fullText": "github：https://t.co/30EfgOSb2L https://t.co/ncWDSuWJcz",
+    "publishTime": "2025-04-21T16:47:59"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [
+      "https://pbs.twimg.com/media/GpDtx70bYAA11qt.jpg"
+    ],
+    "videos": [],
+    "expandUrls": [
+      "https://www.testingcatalog.com/openai-and-shopify-poised-for-partnership-as-chatgpt-adds-in-chat-shopping/"
+    ],
+    "tweetUrl": "https://x.com/aigclink/status/1914297214538748205",
+    "fullText": "内容来自：https://t.co/4wWdNyRAdt https://t.co/tgpJn6HqVr",
+    "publishTime": "2025-04-21T20:36:36"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [],
+    "videos": [
+      "https://video.twimg.com/amplify_video/1914486084886781952/vid/avc1/2070x1080/EQEZAIYZaXC75CKM.mp4?tag=16"
+    ],
+    "expandUrls": [],
+    "tweetUrl": "https://x.com/aigclink/status/1914488523836756086",
+    "fullText": "一款基于异构图的RAG增强系统：NodeRAG，它通过异构图结构来提升检索和生成能力\n\nNodeRAG把不同类型的信息，文本、数据等，整理成一张关系网，使信息之间的联系更清晰，让AI更快更准的找到需要的信息\n\n具备细粒度和可解释的检索，支持在异构图中进行增量更新 https://t.co/zLq3j2YX8x",
+    "publishTime": "2025-04-22T09:16:48"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [
+      "https://pbs.twimg.com/media/GpGfmhZa4AIutb-.png"
+    ],
+    "videos": [],
+    "expandUrls": [
+      "https://github.com/Terry-Xu-666/NodeRAG"
+    ],
+    "tweetUrl": "https://x.com/aigclink/status/1914488527552926080",
+    "fullText": "github：https://t.co/kw9N2WQlyQ https://t.co/6mznkCEySg",
+    "publishTime": "2025-04-22T09:16:49"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [
+      "https://pbs.twimg.com/media/GpGsgGSbkAAezRK.jpg"
+    ],
+    "videos": [],
+    "expandUrls": [],
+    "tweetUrl": "https://x.com/aigclink/status/1914501682270232899",
+    "fullText": "一款语音防伪检测工具的深度学习模型架构：Nes2Net，可用来构建/增强语音反欺骗系统\n\n能识别各种类型的伪造声音，比如语音克隆、逻辑访问攻击、假歌声、假语音、部分语音伪造等\n\n在歌唱声音深度伪造数据集CtrSVDD上，比当前最佳基线系统性能提升了22%，后端计算成本降低了87% https://t.co/WsbBHMHBdr",
+    "publishTime": "2025-04-22T10:09:05"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [],
+    "videos": [],
+    "expandUrls": [
+      "https://github.com/Liu-Tianchi/Nes2Net"
+    ],
+    "tweetUrl": "https://x.com/aigclink/status/1914501685755715741",
+    "fullText": "github：https://t.co/jxiED4Ze51",
+    "publishTime": "2025-04-22T10:09:06"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [
+      "https://pbs.twimg.com/media/GpG3DIha4AAOMwl.jpg"
+    ],
+    "videos": [],
+    "expandUrls": [],
+    "tweetUrl": "https://x.com/aigclink/status/1914513321921044599",
+    "fullText": "MCP生态：\n解决了AI实时获取官方最新技术文档的MCP：Context7 MCP Server\n\n通过访问官方文档和代码示例，把信息直接放入LLM的提示中，使LLM生成更准确有效的代码\n\n使用时，在Cursor、Windsurf等编辑器中提问添加“use context7”即可\n\n没有Context7\n提问：\"如何使用Next.js的新特性？\" https://t.co/NyKu6nImG0",
+    "publishTime": "2025-04-22T10:55:20"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [],
+    "videos": [],
+    "expandUrls": [
+      "https://github.com/upstash/context7"
+    ],
+    "tweetUrl": "https://x.com/aigclink/status/1914513325083570237",
+    "fullText": "github：https://t.co/sM5dRQTQwv",
+    "publishTime": "2025-04-22T10:55:21"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [
+      "https://pbs.twimg.com/media/GpIBspna4AMNOEG.jpg"
+    ],
+    "videos": [],
+    "expandUrls": [],
+    "tweetUrl": "https://x.com/aigclink/status/1914602181350846826",
+    "fullText": "一句话创建智能体的工具：Cooragent，可与其他智能体协作完成复杂的任务，支持MCP\n\n有两种工作模式：\n1、Agent Factory：\n只需描述，Cooragent就会根据需求生成一个智能体，其自动分析需求，通过记忆和扩展深入理解用户需求，挑选合适的工具自动打磨Prompt，逐步完成智能体构建\n\n2、Agent Workflow： https://t.co/ffNAQod3f5",
+    "publishTime": "2025-04-22T16:48:26"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [
+      "https://pbs.twimg.com/media/GpIGy5ibwAAJP4C.jpg"
+    ],
+    "videos": [],
+    "expandUrls": [
+      "https://github.com/LeapLabTHU/cooragent"
+    ],
+    "tweetUrl": "https://x.com/aigclink/status/1914602185444512028",
+    "fullText": "github：https://t.co/svY6CYulco https://t.co/pVY3T3vDVc",
+    "publishTime": "2025-04-22T16:48:27"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [],
+    "videos": [
+      "https://video.twimg.com/amplify_video/1914865102597316612/vid/avc1/1728x1080/sJXCqvhqL76pIior.mp4?tag=16"
+    ],
+    "expandUrls": [],
+    "tweetUrl": "https://x.com/aigclink/status/1914866438013374868",
+    "fullText": "刚刚出来的一款类Manus开源项目：Suna，用自然语言指令组织和控制各种工具与API，来构建自定义的自动化流程和AI agent\n\nSuna可适用的任务更复杂一些，比如数据分析、市场调研、网站部署、自动化测试、数据清洗等 https://t.co/0kuAZNBxzE",
+    "publishTime": "2025-04-23T10:18:29"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [],
+    "videos": [
+      "https://video.twimg.com/amplify_video/1914863460137267200/vid/avc1/1824x1080/idpes7j9XhNC2_HS.mp4?tag=16"
+    ],
+    "expandUrls": [
+      "https://github.com/kortix-ai/suna"
+    ],
+    "tweetUrl": "https://x.com/aigclink/status/1914866441570148684",
+    "fullText": "github：https://t.co/YiTUNKU7jf\n\n市场调研示例：\n\"你能帮我研究一下 B2C AI 市场吗？并展示一些你发现的有趣数字的图表。请使用浏览器浏览网页\" https://t.co/7Z6GaekJpE",
+    "publishTime": "2025-04-23T10:18:30"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [
+      "https://pbs.twimg.com/media/GpMDEsPaEAAC1pE.jpg"
+    ],
+    "videos": [],
+    "expandUrls": [
+      "http://pad.ws"
+    ],
+    "tweetUrl": "https://x.com/aigclink/status/1914879873975521363",
+    "fullText": "这款“白板+代码编辑器”的组合工具火了，https://t.co/vu4gJ77rpJ\n\n它把白板和IDE合二为一，开发者可以在同一界面里画图和编程，实现边画边写代码，在视觉化构思和编程之间无缝切换\n\n用Excalidraw作为白板界面，Coder提供云端开发环境\n支持VS Code、Cursor等\n\n#编程工具 https://t.co/FuOYWhUG4e",
+    "publishTime": "2025-04-23T11:11:53"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [],
+    "videos": [],
+    "expandUrls": [
+      "https://github.com/pad-ws/pad.ws"
+    ],
+    "tweetUrl": "https://x.com/aigclink/status/1914879877083484297",
+    "fullText": "github：https://t.co/CZWJv2lOME",
+    "publishTime": "2025-04-23T11:11:54"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [],
+    "videos": [
+      "https://video.twimg.com/tweet_video/GpMkC_Ga4AQFBXm.mp4"
+    ],
+    "expandUrls": [],
+    "tweetUrl": "https://x.com/aigclink/status/1914914268073660548",
+    "fullText": "腾讯混元3D生成模型刚刚放出了最新版：v2.5，总参数量从1B提升到了10B，有效面片数增加超过10倍\n\n亮点：\n1、多视图支持pbr贴面，可上传前后左右多角度图片，上传图片精度越高，效果越好\n\n2、建模精细度大幅提升，有效几何分辨率达到了1024 https://t.co/nf4YMhQpZa",
+    "publishTime": "2025-04-23T13:28:33"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [],
+    "videos": [
+      "https://video.twimg.com/tweet_video/GpMkJpFa4AEz3fj.mp4",
+      "https://video.twimg.com/tweet_video/GpMkJpDa4AE77ty.mp4"
+    ],
+    "expandUrls": [
+      "https://3d.hunyuan.tencent.com/"
+    ],
+    "tweetUrl": "https://x.com/aigclink/status/1914914748040466547",
+    "fullText": "体验地址：https://t.co/DxBjkfS5ac https://t.co/35iKHbfaZ4",
+    "publishTime": "2025-04-23T13:30:27"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [
+      "https://pbs.twimg.com/media/GpNEY2Va4AAYUa2.jpg"
+    ],
+    "videos": [],
+    "expandUrls": [],
+    "tweetUrl": "https://x.com/aigclink/status/1914952009519915239",
+    "fullText": "字节将会放出其视频理解及编辑多模态模型：Vidi，第一版的核心是时间检索能力，可精确定位到视频中对应的片段\n\n能处理视觉、音频、文本等输入，支持处理超长视频（一小时的视频），时间理解能力较强\n\n在时间检索任务上性能优于GPT-4o、Gemini等\n\n#Vidi #AI视频编辑 https://t.co/WLhYSvfDZe",
+    "publishTime": "2025-04-23T15:58:31"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [],
+    "videos": [],
+    "expandUrls": [
+      "https://bytedance.github.io/vidi-website/"
+    ],
+    "tweetUrl": "https://x.com/aigclink/status/1914952012741140755",
+    "fullText": "项目主页：https://t.co/1l5plDhI5s",
+    "publishTime": "2025-04-23T15:58:32"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [],
+    "videos": [
+      "https://video.twimg.com/amplify_video/1915214406935601152/vid/avc1/1920x700/W9FtMod3ymFYYDVW.mp4?tag=16"
+    ],
+    "expandUrls": [],
+    "tweetUrl": "https://x.com/aigclink/status/1915215676605940023",
+    "fullText": "酷，英伟达新放出了一款事物描述多模态LLM：Describe Anything，你指定图像或视频中某个特定区域，它能给你生成详细的描述\n\n可以使用点、框、涂鸦或掩码来指定区域，能根据指令生成不同细节及风格的描述，可以进行零样本区域问答 https://t.co/yo7IA7hMqv",
+    "publishTime": "2025-04-24T09:26:14"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [],
+    "videos": [
+      "https://video.twimg.com/amplify_video/1915215256865169408/vid/avc1/1920x1080/JkEyJHN2Uz8QlMG5.mp4?tag=16"
+    ],
+    "expandUrls": [
+      "https://huggingface.co/collections/nvidia/describe-anything-680825bb8f5e41ff0785834c",
+      "https://github.com/NVlabs/describe-anything"
+    ],
+    "tweetUrl": "https://x.com/aigclink/status/1915215680263381473",
+    "fullText": "模型：https://t.co/8sYrMGyqnp\ngithub：https://t.co/V4u5YOoHT3 https://t.co/cfDRXDswUJ",
+    "publishTime": "2025-04-24T09:26:15"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [
+      "https://pbs.twimg.com/media/GpQ9ShhbYAMV8Lb.jpg"
+    ],
+    "videos": [],
+    "expandUrls": [],
+    "tweetUrl": "https://x.com/aigclink/status/1915224606174228976",
+    "fullText": "实用工具，在Claude里无缝访问微信读书笔记和阅读数据的工具：mcp-server-weread，阅读笔记与AI深度交互\n\n等于把碎片化的阅读笔记转化为系统化的知识体系，可通过AI辅助深化对阅读内容的理解和应用，比较实用\n\n比如可以用来做，深度阅读分析与讨论、以主题式的笔记整合，或者是写作与创作辅助 https://t.co/mAka3Ahb9R",
+    "publishTime": "2025-04-24T10:01:43"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [],
+    "videos": [],
+    "expandUrls": [
+      "https://github.com/freestylefly/mcp-server-weread"
+    ],
+    "tweetUrl": "https://x.com/aigclink/status/1915224608841867347",
+    "fullText": "github：https://t.co/4o1ICo6hzx",
+    "publishTime": "2025-04-24T10:01:44"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [],
+    "videos": [
+      "https://video.twimg.com/amplify_video/1915229783782477824/vid/avc1/1920x1080/E7-6IrKV4YROpFY7.mp4?tag=16"
+    ],
+    "expandUrls": [
+      "https://openai.com/index/image-generation-api/"
+    ],
+    "tweetUrl": "https://x.com/aigclink/status/1915232587846750681",
+    "fullText": "博客：https://t.co/kzNYymd6c7 https://t.co/38UtNRzpbZ",
+    "publishTime": "2025-04-24T10:33:26"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [],
+    "videos": [
+      "https://video.twimg.com/amplify_video/1915325502568751108/vid/avc1/2186x1080/YlrJnCJ9toDPcPYj.mp4?tag=16"
+    ],
+    "expandUrls": [],
+    "tweetUrl": "https://x.com/aigclink/status/1915329640492917122",
+    "fullText": "太酷了，阿里通义实验室给出了一套完整的可实时交互的数字人系统！\n\n先是一款单图秒级3D数字人生成模型：LAM，支持实时动画和交互功能\n支持跨平台、低延迟、实时渲染\n\n另外还开源了两个配套工具，形成了一个完整的可实时交互的数字人系统 https://t.co/7GeiX5JQcH",
+    "publishTime": "2025-04-24T16:59:06"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [],
+    "videos": [
+      "https://video.twimg.com/amplify_video/1915327743648292864/vid/avc1/1920x1080/ow2yaiDJVE3Ri5On.mp4?tag=16"
+    ],
+    "expandUrls": [
+      "https://github.com/aigc3d/LAM",
+      "https://github.com/HumanAIGC-Engineering/OpenAvatarChat",
+      "https://github.com/aigc3d/LAM_Audio2Expression"
+    ],
+    "tweetUrl": "https://x.com/aigclink/status/1915329644724682929",
+    "fullText": "LAM github：https://t.co/l57aQu2nzo\nOpenAvatarChat github：https://t.co/7vQFQOOKxr\nLAM_Audio2Expression：https://t.co/f6Jfpd9b0b https://t.co/QctC3A6H1a",
+    "publishTime": "2025-04-24T16:59:07"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [
+      "https://pbs.twimg.com/media/GpWEU5WbYAQfdzc.jpg"
+    ],
+    "videos": [],
+    "expandUrls": [],
+    "tweetUrl": "https://x.com/aigclink/status/1915582962223243444",
+    "fullText": "自媒体神器：Secretary，可以自动化跟踪分析指定社交媒体内容，分析结果会推送到微信上\n\n针对跟踪的内容可以设置不同的分析主题，比如财经、政治、科技等方向，让它进行定制化分析\n\n可以同时跟踪多个账号，每个账号设置不同的分析提示词\n\n目前支持 Truth Social和Twitter https://t.co/846wREQmUy",
+    "publishTime": "2025-04-25T09:45:42"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [],
+    "videos": [],
+    "expandUrls": [
+      "https://github.com/zkd8907/secretary"
+    ],
+    "tweetUrl": "https://x.com/aigclink/status/1915582965821956515",
+    "fullText": "github：https://t.co/eB6bousCnq",
+    "publishTime": "2025-04-25T09:45:43"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [],
+    "videos": [
+      "https://video.twimg.com/amplify_video/1915600370191286272/vid/avc1/2278x1080/oEfOKbESug4wizx1.mp4?tag=16"
+    ],
+    "expandUrls": [],
+    "tweetUrl": "https://x.com/aigclink/status/1915602805039177821",
+    "fullText": "牛，30.5K星，收集了包括Cursor、Manus、Devin、Windsurf等在内的AI工具系统提示词库\n\n库里提供了6500+行、9个工具的系统提示词参考，包括开源和闭源的，可以了解不同AI工具的设计思路，用来学习研究\n\nv0、Manus、Cursor、Same、Lovable、Devin、Replit Agent、Windsurf Agent以及VSCode Agent 这9个 https://t.co/rhsUYWJRv7",
+    "publishTime": "2025-04-25T11:04:33"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [
+      "https://pbs.twimg.com/media/GpWUd2CbYAAG952.jpg"
+    ],
+    "videos": [],
+    "expandUrls": [
+      "https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools"
+    ],
+    "tweetUrl": "https://x.com/aigclink/status/1915602808755405237",
+    "fullText": "github：https://t.co/MTNkMXd8f1 https://t.co/4Llz9zn5BM",
+    "publishTime": "2025-04-25T11:04:34"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [
+      "https://pbs.twimg.com/media/GpWlBm3bYAEBbOU.jpg"
+    ],
+    "videos": [],
+    "expandUrls": [],
+    "tweetUrl": "https://x.com/aigclink/status/1915618686423179321",
+    "fullText": "国内百度也支持MCP了，继阿里和腾讯之后，又一个全面支持MCP的大厂#mcp https://t.co/o7lROCu5YZ",
+    "publishTime": "2025-04-25T12:07:39"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [],
+    "videos": [
+      "https://video.twimg.com/amplify_video/1915682939498881026/vid/avc1/2066x1080/QilnP_LMS6mnnM3y.mp4?tag=16"
+    ],
+    "expandUrls": [],
+    "tweetUrl": "https://x.com/aigclink/status/1915683841517502936",
+    "fullText": "酷，斯坦福大学的热门课程 CS25：Transformers United V5，内容聚焦Transformer前沿研究，无需注册，加入Zoom即可听课！\n\n课程涵盖从GPT等大模型到AI在艺术、生物学、机器人领域应用等各种AI最新突破，每周一次课\n\n这期讲师有来自OpenAI的、Google https://t.co/uCfLSgq3Af",
+    "publishTime": "2025-04-25T16:26:34"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [],
+    "videos": [],
+    "expandUrls": [
+      "https://web.stanford.edu/class/cs25/"
+    ],
+    "tweetUrl": "https://x.com/aigclink/status/1915683844105355740",
+    "fullText": "课程页面：https://t.co/x71p91eEAD",
+    "publishTime": "2025-04-25T16:26:34"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [],
+    "videos": [
+      "https://video.twimg.com/amplify_video/1915691980920938500/vid/avc1/1280x720/dyobkCiQQVJv-U5K.mp4?tag=16"
+    ],
+    "expandUrls": [],
+    "tweetUrl": "https://x.com/aigclink/status/1915751502649721285",
+    "fullText": "中科大等放出来一款视频画面增强模型：Ev-DeblurVSR，核心两个功能，去模糊和超分辨率，效果看起来还不错\n\n去模糊，可以把运动模糊、手抖等导致的模糊视频变清晰\n超分辨率，可以把视频放大4倍，能保持清晰度\n\n用来做体育赛事等快速运动画面的清晰化、老旧视频的修复还是不错的\n\n#AI视频工具 https://t.co/PWQQOa8Xgd",
+    "publishTime": "2025-04-25T20:55:25"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [],
+    "videos": [],
+    "expandUrls": [
+      "https://github.com/DachunKai/Ev-DeblurVSR"
+    ],
+    "tweetUrl": "https://x.com/aigclink/status/1915751505560482036",
+    "fullText": "github：https://t.co/aHu95cJYuW",
+    "publishTime": "2025-04-25T20:55:26"
+  },
+  {
+    "user": {
+      "screenName": "aigclink",
+      "name": "AIGCLINK"
+    },
+    "images": [
+      "https://pbs.twimg.com/media/GpbR9qGaMAA0KRV.jpg"
+    ],
+    "videos": [],
+    "expandUrls": [],
+    "tweetUrl": "https://x.com/aigclink/status/1915954779463029118",
+    "fullText": "近期经常用google的Deep Research，真心推荐，有几个特点：\n1、针对一个问题可以帮你检索两千多个网站内容\n2、输出的内容可以达到上万字\n3、可以将生成的报告内容转为语音\n\n将搜索能力、百万上下文窗口、大文本量输出、tts等体现到极致，用过它感觉其他的ai搜索都不香了。\n#gemini #google https://t.co/il2qSaYE2o",
+    "publishTime": "2025-04-26T10:23:10"
+  }
+]

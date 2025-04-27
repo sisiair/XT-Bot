@@ -31,6 +31,12 @@ class Config:
 # --------------------
 def configure_logging():
     """配置日志格式和级别"""
+    # 设置系统编码为UTF-8，解决Windows下GBK编码问题
+    if sys.platform == 'win32':
+        import codecs
+        sys.stdout = codecs.getwriter('utf-8')(sys.stdout.buffer)
+        sys.stderr = codecs.getwriter('utf-8')(sys.stderr.buffer)
+        
     log_dir = Config.DEFAULT_LOG_DIR
     date_format = Config.DATE_FORMAT
 
