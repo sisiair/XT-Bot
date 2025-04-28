@@ -10,6 +10,7 @@ import subprocess
 from datetime import datetime
 from pathlib import Path
 from typing import List, Dict
+import sys
 
 
 # --------------------------
@@ -26,6 +27,13 @@ class EnvConfig:
     LARK_APP_ID = os.getenv("LARK_APP_ID")      # 可选：飞书应用ID
     LARK_APP_SECRET = os.getenv("LARK_APP_SECRET")  # 可选：飞书应用密钥
     LARK_ALERT_KEY = os.getenv("LARK_ALERT_KEY", LARK_KEY)  # 告警机器人Key，默认同主Key
+    
+    # 飞书多维表格配置
+    FEISHU_APP_ID = os.getenv("FEISHU_APP_ID")  # 飞书应用ID
+    FEISHU_APP_SECRET = os.getenv("FEISHU_APP_SECRET")  # 飞书应用密钥
+    FEISHU_BITABLE_ID = os.getenv("FEISHU_BITABLE_ID")  # 多维表格ID
+    FEISHU_TABLE_ID = os.getenv("FEISHU_TABLE_ID")  # 数据表ID
+    FEISHU_BITABLE_ENABLED = os.getenv("FEISHU_BITABLE_ENABLED", "false").lower() == "true"
 
 
 class PathConfig:
@@ -480,54 +488,65 @@ class LarkNotifier:
 # 主流程
 # --------------------------
 def main():
-    """主处理流程"""
-    # 初始化飞书通知器
-    initialize_notifier()
-    
-    # 测试飞书通知是否可用
-    if EnvConfig.LARK_KEY:
-        logger.info(f"✅ 飞书配置已设置，Webhook Key: {EnvConfig.LARK_KEY[:4]}***")
-        # 尝试发送测试消息
-        test_result = send_lark_alert("INI-XT-Bot启动测试 - 这是一条测试消息")
-        if test_result:
-            logger.info("✅ 飞书测试消息发送成功")
-        else:
-            logger.error("❌ 飞书测试消息发送失败，请检查配置")
-    else:
-        logger.warning("⚠️ 未配置LARK_KEY环境变量，飞书通知功能不可用")
-    
-    # 加载配置文件
-    users = load_config()
-    if not users:
-        error_msg = "❌ 未获取到有效用户列表，程序终止"
-        logger.error(error_msg)
-        send_lark_alert(error_msg)
-        return
-
-    # 遍历处理用户
-    total_new = 0
-    for screen_name in users:
-        logger.info(f"\n{'=' * 40}\n🔍 开始处理: {screen_name}")
-        new_count = process_user(screen_name)
-
-        # 处理新增条目
-        if new_count > 0:
-            # 发送飞书通知
-            send_lark_message(screen_name, new_count)
-            logger.info(f"✅ 用户 {screen_name} 有 {new_count} 条新内容，已发送通知")
-
-        # 触发下游流程
-        if not trigger_tbot():
-            send_lark_alert(f"触发T-Bot失败 - 用户: {screen_name}")
-
-        total_new += new_count
-        logger.info(f"✅ 处理完成\n{'=' * 40}\n")
-
-    # 最终状态汇总
-    summary_msg = f"🎉 所有用户处理完成！总新增条目: {total_new}"
-    logger.info(summary_msg)
-    if total_new > 0:
-        send_lark_alert(summary_msg)
+    """主函数"""
+    try:
+        # 初始化飞书通知器
+        initialize_notifier()
+        
+        # 检查配置文件
+        if not PathConfig.CONFIG_PATH.exists():
+            logger.warning("⚠️ 配置文件不存在，将创建默认配置...")
+            create_default_config()
+        
+        # 加载用户列表
+        screen_names = load_config()
+        
+        if not screen_names:
+            logger.error("❌ 没有找到需要处理的用户")
+            sys.exit(1)
+            
+        # 处理每个用户
+        total_processed = 0
+        for screen_name in screen_names:
+            try:
+                logger.info(f"\n{'='*50}\n⏳ 开始处理用户: {screen_name}\n{'='*50}")
+                new_count = process_user(screen_name)
+                total_processed += new_count
+            except Exception as e:
+                logger.error(f"❌ 处理用户 {screen_name} 失败: {str(e)}", exc_info=True)
+                send_lark_alert(f"处理用户 {screen_name} 失败: {str(e)}")
+        
+        # 触发T-Bot处理
+        logger.info(f"\n{'='*50}\n🔄 触发T-Bot进行文件处理\n{'='*50}")
+        success = trigger_tbot()
+        if not success:
+            logger.warning("⚠️ T-Bot处理可能未成功完成")
+            
+        # 同步到飞书多维表格（如果启用）
+        if EnvConfig.FEISHU_BITABLE_ENABLED:
+            try:
+                logger.info(f"\n{'='*50}\n🔄 同步数据到飞书多维表格\n{'='*50}")
+                # 导入飞书同步模块
+                from feishu_sync import TwitterToFeishuSync
+                
+                syncer = TwitterToFeishuSync()
+                synced_count = syncer.sync_all_users()
+                
+                if synced_count > 0:
+                    logger.info(f"✅ 成功同步 {synced_count} 条推文到飞书多维表格")
+                    logger.info(f"📊 多维表格访问地址: {syncer.feishu_bitable.get_table_url()}")
+                else:
+                    logger.info("ℹ️ 没有新的推文需要同步到飞书多维表格")
+            except Exception as e:
+                logger.error(f"❌ 同步到飞书多维表格失败: {str(e)}", exc_info=True)
+                send_lark_alert(f"同步到飞书多维表格失败: {str(e)}")
+            
+        logger.info(f"\n{'='*50}\n✅ 所有处理完成，共处理 {total_processed} 条新内容\n{'='*50}")
+            
+    except Exception as e:
+        logger.error(f"💥 处理过程中发生错误: {str(e)}", exc_info=True)
+        send_lark_alert(f"INI-XT-Bot执行失败: {str(e)}")
+        sys.exit(1)
 
 
 if __name__ == "__main__":

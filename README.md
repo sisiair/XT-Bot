@@ -12,6 +12,7 @@
 - GitHub Actions 自动化部署
 - Twitter广播/空间链接推文同步到Telegram(飞书(可选))
 - 操作异常告警信息添加飞书机器人消息通知(可选)
+- 支持将推特数据同步到飞书多维表格（可选）
 
 ## 快速配置 ⚙️
 
@@ -33,6 +34,13 @@ REDIS_CONFIG  # Redis配置(可选)格式如下：
   "db": 0
 }
 LARK_KEY      # 飞书机器人key(可选)https://open.feishu.cn/open-apis/bot/v2/hook/{LARK_KEY}
+
+# 飞书多维表格配置(可选)
+FEISHU_APP_ID         # 飞书应用ID
+FEISHU_APP_SECRET     # 飞书应用密钥
+FEISHU_BITABLE_ID     # 多维表格ID（可选，不提供则自动创建）
+FEISHU_TABLE_ID       # 数据表ID（可选，不提供则自动创建）
+FEISHU_BITABLE_ENABLED # 是否启用多维表格功能（true/false）
 ```
 
 > 关于 REDIS_CONFIG 补充
@@ -54,6 +62,13 @@ LARK_KEY      # 飞书机器人key(可选)https://open.feishu.cn/open-apis/bot/v
 ### 手动初始化流程 [`INI-XT-Bot.yml`]
 
 同步指定用户全量推文（支持多用户） 在 config/config.json 中添加用户信息，执行相关流程操作
+
+### 飞书多维表格同步 [`feishu-sync.yml`]
+
+- 🕒 每天早上6点到晚上22点，每2小时执行一次
+- 同步最近一天的推特数据到飞书多维表格
+- 支持手动触发
+- 自动记录同步状态，避免重复同步
 
 下面详细介绍一下可配置项（可通过redis的key键config来修改）
 

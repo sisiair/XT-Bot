@@ -28,6 +28,10 @@ class Config:
         'caption': 1024  # 保持原始截断逻辑
     }
 
+    # 飞书多维表格配置
+    FEISHU_BITABLE_ENABLED = os.getenv("FEISHU_BITABLE_ENABLED", "false").lower() == "true"
+    FEISHU_SYNC_AFTER_UPLOAD = os.getenv("FEISHU_SYNC_AFTER_UPLOAD", "true").lower() == "true"
+
     # 业务参数
     MAX_DOWNLOAD_ATTEMPTS = 10  # 保持原始重试次数
     NOTIFICATION_TRUNCATE = 200  # 通知消息截断长度
@@ -621,6 +625,30 @@ def batch_process(days: int = 7) -> None:
             process_single(str(json_path))
         else:
             logger.info(f"⏭ 跳过不存在文件: {json_path}")
+    
+    # 同步到飞书多维表格（如果启用）
+    if Config.FEISHU_BITABLE_ENABLED:
+        sync_to_feishu_bitable(days)
+
+
+def sync_to_feishu_bitable(days: int = 7) -> None:
+    """同步数据到飞书多维表格"""
+    try:
+        # 导入飞书同步模块
+        from feishu_sync import TwitterToFeishuSync
+        
+        logger.info("🔄 开始同步数据到飞书多维表格...")
+        syncer = TwitterToFeishuSync()
+        synced_count = syncer.sync_recent_days(days)
+        
+        if synced_count > 0:
+            logger.info(f"✅ 成功同步 {synced_count} 条推文到飞书多维表格")
+            logger.info(f"📊 多维表格访问地址: {syncer.feishu_bitable.get_table_url()}")
+        else:
+            logger.info("ℹ️ 没有新的推文需要同步到飞书多维表格")
+    except Exception as e:
+        logger.error(f"❌ 同步到飞书多维表格失败: {str(e)}", exc_info=True)
+        Notifier.send_lark_alert(f"同步到飞书多维表格失败: {str(e)[:Config.NOTIFICATION_TRUNCATE]}")
 
 
 def main():
